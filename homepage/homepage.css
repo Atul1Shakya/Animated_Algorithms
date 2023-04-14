@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Mukta', sans-serif;
+}
+nav{
+    background: none;
+    position: absolute;
+}
+.deco_image{
+    z-index: 1;
+    height: 72px;
+    filter: invert(87%) sepia(61%) saturate(367%) hue-rotate(173deg) brightness(109%) contrast(101%); 
+}
+#img1 {
+    position: relative;
+    top: -288px;
+    bottom: -6px;
+    right: 10px;
+    left: 415px;
+    transform: rotate(143deg);
+}
+#img2 {
+    height: 140px;
+    position: relative;
+    top: -93px;
+    bottom: 23px;
+    right: 10px;
+    left: 89px;
+    transform: rotate(-107deg);
+}
+#img3 {
+    position: relative;
+    height: 120px;
+    top: -146px;
+    left: 1073px;
+    transform: rotate(-138deg);
+}
+#img4 {
+    height: 96px;
+    position: relative;
+    top: -314px;
+    bottom: 23px;
+    right: 10px;
+    left: -227px;
+    transform: rotate(-27deg);
+}
+#img5 {
+    position: relative;
+    top: -355px;
+    left: 575px;
+    transform: rotate(-21deg);
+}
+#img6 {
+    position: relative;
+    height: 118px;
+    top: -342px;
+    left: 860px;
+    transform: rotate(143deg);
+}
+#img7 {
+    height: 87px;
+    position: relative;
+    top: -161px;
+    left: 509px;
+    transform: rotate(17deg);
+}
+
+.container{
+    /* background: rgb(66,194,255); */
+    /* background: linear-gradient(180deg, rgba(66,194,255,1) 0%, rgba(133,244,255,1) 50%, rgba(184,255,249,1) 100%);
+    
+ */
+ background: url(/resources/bg_img.jpg);
+ background-size: 100vh 100vh;
+}
+.search_area{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.main_logo{
+    margin-top: 180px;
+    height: 232px;
+
+    /* filter: invert(25%) sepia(75%) saturate(1302%) hue-rotate(184deg) brightness(94%) contrast(92%); */
+    filter: invert(100%);
+
+    z-index: 2;
+     
+}
+.algo_slogan{
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #135b9b;
+    color: white;
+}
+.home_search_bar{
+     height: 90px;
+     width: 620px;
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid #135b9b; */
+    background-color: white;
+    border-radius: 14px;
+    padding: 2px;
+}
+.home_search_bar img{
+    height: 45px;
+    /* margin-top: 5px; */
+    /* filter: invert(87%) sepia(61%) saturate(367%) hue-rotate(173deg) brightness(109%) contrast(101%);     */
+    margin-right: 4px;
+    margin-left: 2px;
+}
+.home_search_bar input{
+    width: 600px;
+    margin: 1px;
+    height: 45px;
+    border: none;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    /* background-color: rgb(237, 241, 241); */
+}
+
+/* algorithm list */
+.algos_list{
+    background-color: white;
+    padding: 45px;
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    justify-content: center;
+    align-content: center;
+    gap: 18px;
+
+}
+.algos_list a{
+    text-decoration: none;
+}
+.algos_list div ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border-radius: 9px;
+    transition: 0.3s;
+}
+.algos_list div ul:hover{
+    transform: scale(1.1, 1.1);
+}
+.algos_list div li{
+    list-style: none;
+    font-size: 25px;
+    border: 4px solid #FF4545;
+    display: inline-block;
+    width: 15rem;
+}
+.algo_text{
+    text-align: center;
+    font-family: 'Mukta', sans-serif;
+    color: white;
+    background-color: #FF4545;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+.algo_image{
+    height: 145px;
+    overflow: hidden;
+    background-color: #ffdbdb;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    /* padding-left: 18%;
+    padding-top: 15%; */
+}
+.algos_list img{
+    height: 145px;
+    position: absolute;
+    bottom: 15%;
+    left: 17%;
+}
+
+/* about section */
+.about{
+    background-color: #ffd0d0;
+    margin-top: 30px;
+    /* text-align: center; */
+}
+.about h1{
+    position: relative;
+    color: #135b9b;
+    font-size: 50px;
+    /* text-align: center; */
+
+}
+
+.about p{
+    line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: lighter;
+    position: relative;
+    left: 6em;
+    width: 183vh;
+}
+
+
+
