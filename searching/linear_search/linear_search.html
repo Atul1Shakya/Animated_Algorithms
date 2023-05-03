@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear search</title>
+    <link rel="stylesheet" href="linear_Search.css">
+</head>
+
+<body>
+    <div class="linear_search_container">
+        <div class="input_array">
+            <form onsubmit="return false">
+                <span>Enter elements of array(seperated by space)</span>
+                <input autocomplete="off" id="number_array" type="text"><br>
+                <span>Enter the target number</span>
+                <input autocomplete="off" id="target_number" type="text"><br>
+                <input onclick="input_array(), target_input()" type="submit">
+
+                <button id="animate">Animate</button>
+            </form>
+        </div>
+        <div class="animation_area">
+            <div class="givenarray" id="arrbox">
+                <ul id="arrayboxes"></ul>
+            </div>
+            <div class="target_box">
+                <span id="target"></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js" integrity="sha512-O+atZ/gABlcFlpIoLQR04f72qHqZWKwTVsQZHqk/8VE2nrzDlnqhXbnXP7Gh/TyhpPT8tEUm5A580GG8AloHTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js" integrity="sha512-ExEP0u1SOp7gvzBoHWYmi6CEzdW2VHgfMeRZTetgX4HazJhC/UO1l83VGn4TLvgmIAxotN8uBcDE05a3sJglOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="linear_search.js"></script>
+
+</html>
