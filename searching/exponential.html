@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <!-- font- lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Template</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(214, 233, 246)">
+        <a class="navbar-brand" href="#">
+            <img src="resource/nav-logo.png" width="180" alt="" />
+        </a>
+        <button class="navbar-toggler me-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h4 class="nav-item disabled">\Searching</h4>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="index.html">Linear</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="binarySearch.html">Binary</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fibonacci.html">Fibonacci</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="exponential.html">Exponential</a>
+                </li>
+
+                <!--li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Algorithms..."
+                    aria-label="Search" />
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    GO
+                </button>
+
+                <!-- ANOTHER OPTION 
+            <button class="btn btn-outline-light btn-dark my-2 my-sm-0" type="submit">GO</button> -->
+            </form>
+        </div>
+    </nav>
+
+    <!-- content -->
+
+    <div class="content">
+        <h1>Exponential Search</h1>
+        <p>Exponential search is a search algorithm that can efficiently find an element in a sorted array by repeatedly
+            doubling the size of the search interval.Exponential search is a search algorithm that can efficiently find
+            an element in a sorted array by repeatedly doubling the size of the search interval. </p>
+
+
+        <h3>
+            How Exponential Search Works?
+        </h3>
+        <ol>
+            <li>We have the following sorted array of integers: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19], and we
+                want to find the index of the element 13. <br> Start with i=1, and compare the element at index 1 (which
+                is 3) with the target element (13). Since 3 is less than 13, set i to 2 and repeat the
+                comparison.</li>
+            <li>Now i is 2, and we compare the element at index 2 (which is 5) with the target element (13). Since 5 is
+                less than 13, set i to 4 and repeat the comparison.</li>
+            <li>Now i is 4, and we compare the element at index 4 (which is 9) with the target element (13). Since 9 is
+                less than 13, set i to 8 and repeat the comparison.</li>
+            <li>Now i is 8, and we compare the element at index 8 (which is 17) with the target element (13). Since 17
+                is greater than 13, we know that the target element must be in the interval [left, right] = [4, 7].</li>
+            <li>Perform a binary search within the interval [4, 7] to find the target element. The midpoint of the
+                interval is (4 + 7) / 2 = 5, so we compare the element at index 5 (which is 11) with the target element
+                (13). Since 11 is less than 13, we know that the target element must be in the interval [6, 7].</li>
+            <li>Perform another binary search within the interval [6, 7]. The midpoint is (6 + 7) / 2 = 6, so we compare
+                the element at index 6 (which is 13) with the target element (13). Since they are equal, we have found
+                the target element and return the index 6.</li>
+           
+        </ol>
+
+
+        <h3>
+            Complexity Analysis of Exponential Search:
+        </h3>
+        <h5>Time Complexity:</h5>
+        <ul>
+            <li><b>Best Case:</b> <i>O(1)</i></li>
+            <li><b>Worst Case:</b> <i>O(log n)</i></li>
+            <li><b>Average Case:</b> <i>O(log log n)</i></li>
+
+        </ul>
+        <h5 class="spacecomplexity">Auxiliary Space:</h5>
+        <i>O(1)</i> as except the variable to iterate through the list, no other variable is used.
+
+
+        <h3>Pseudo Code</h3>
+
+        
+       <p>function exponentialSearch(arr, target) <br>:
+        // If the array is empty, return -1 br
+        if arr.length == 0: <br>
+            return -1 <br>
+        
+        // Set the initial search interval to [1, min(2^k, n-1)] br
+        i = 1 <br>
+        while i < arr.length and arr[i] < target: <br>
+            i = i * 2 <br>
+        
+        // Perform a binary search within the interval [i/2, min(i, n-1)] br
+        left = i / 2 <br>
+        right = min(i, arr.length - 1) <br>
+        while left <= right: br
+            mid = left + (right - left) / 2  <br>
+            if arr[mid] == target: <br>
+                return mid <br>
+            elif arr[mid] < target: <br>
+                left = mid + 1 <br>
+            else: br
+                right = mid - 1 <br>
+        
+        // If the target element was not found, return -1 <br>
+        return -1
+    </p>
+
+
+
+
+
+        <!-- form for animations -->
+
+
+
+
+
+</body>
+
+</html>

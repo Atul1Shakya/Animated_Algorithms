@@ -1,0 +1,150 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.linear_search_container{
+   height: 400px;
+}
+
+.animation_area{
+   display: flex;
+   border: 2px dotted Red;
+   height: fit-content;
+   flex-direction: column;
+}
+
+#arrayboxes {
+   display: flex;
+   flex-direction: row;
+   position: relative;
+   /* justify-content: center;
+    align-items: center; */
+
+    top:16%;
+    left: 1%;
+}
+
+#arrayboxes{
+   list-style: none;
+}
+
+
+
+.array-box {
+   border: 2px solid #bdbdbd;
+   border-radius: 5px;
+   padding: 1% 2%;
+   height: fit-content;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 5px;
+   font-size: 32px;
+   
+}
+.target_box{
+   display: none;
+   position: relative;
+   align-items: center;
+   /* justify-content: center; */
+   font-size: 32px;
+   top:20%;
+   left: 1.5%;
+}
+
+#target {
+   display: none;
+   position: relative;
+   border: 2px solid #bdbdbd;
+   border-radius: 5px;
+   
+
+   height: fit-content;
+   width:fit-content;
+   padding: 1% 2%;
+   margin: 1%;
+   align-items: center;
+   justify-content: center;
+}
+
+
+#number_array{
+   border: 2px solid #bdbdbd;
+   border-radius: 5px;
+   margin-bottom: 1%;
+}
+#target_number{
+   border: 2px solid #bdbdbd;
+   border-radius: 5px;
+   margin-bottom: 1%;
+
+}
+
+.input_area{
+   /* background-color: aqua; */
+   margin: 1% 0;
+   padding: 1% 1%;
+
+   position: relative;
+   left: -3.2%;
+
+   height: 50%;
+   width: 75%;
+   display: inline-flex;
+}
+
+.input_array{
+   height: 90%;
+   /* display: none; */
+   overflow: hidden;
+   border: 3px rgb(53, 221, 255) solid;
+   padding: 10px;
+   background-color: rgb(44, 44, 44);
+   color: white;
+   width: 75%;
+   font-size: 22px;
+}
+
+
+.input_array_active{
+   height: 90%;
+   border: 3px rgb(53, 221, 255) solid;
+   padding: 10px;
+   background-color: rgb(44, 44, 44);
+   color: white;
+   width: 75%;
+   font-size: 22px;
+}
+.slider{
+   cursor: pointer;
+   height: 90% ;
+   display: flex;
+   background-color: red;
+   align-items: center;
+   transition: all 0.5;
+
+}
+.slider svg {
+   width: 3rem;
+   height:auto;
+}
+
+.buttons{
+
+   color: white;
+   margin: 0 2% 0 0;
+}
+
+.found , .not-found{
+   display: none;
+   flex-direction:column;
+   align-items: center;
+
+   margin: 1% 20%
+}
+.not-found img{
+   height: auto;
+   width: 200px;
+}
