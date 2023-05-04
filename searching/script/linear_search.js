@@ -2,6 +2,8 @@ const tl = new TimelineMax();
 
 var number_of_box = 0;
 
+// INPUT ARRAY CODE
+
 function input_array() {
   let number_array = document.getElementById("number_array").value;
   // let number_array = "1 6 5 777 9 ";
@@ -63,6 +65,9 @@ function input_array() {
   }
 }
 
+// SUBMISSION OF ARRAY
+let animation_flag = false;
+
 document.querySelector("#submit").addEventListener("click", () => {
   if (tl.isActive()) {
     e.preventDefault();
@@ -75,21 +80,27 @@ document.querySelector("#submit").addEventListener("click", () => {
   target.style.background= "none";
   target.style.transform = "scale(1, 1)";
   target.style.borderColor = "#bdbdbd";
+  animation_flag=false;
 
 });
+
+//TARGET INPUT
 
 function target_input() {
   const target_number = document.querySelector("#target_number").value;
   // const target_number = "9";
+  if(target_number===""){
+    alert("target cannot be empty please provide a value")
+  }
+  else{
 
-  // console.log(target_number)
   const target = document.querySelector("#target");
   target.innerHTML = target_number;
 
   target.style.display = "flex";
   document.querySelector(".target_box").style.display = "flex";
-
   f();
+  }
 
         function f(){
           tl.fromTo(
@@ -116,39 +127,51 @@ let box_count = 0;
 
 let timer = null;
 
+// ANIMATION SECTION
+
+
 document.querySelector("#animate").addEventListener("click", () => {
   if (tl.isActive()) {
     e.preventDefault();
     e.stopImmediatePropagation();
     return false;
   }
+  box_count=0;
+  if(animation_flag==false){
+    search();
+    animation_flag= true;
+  }
+  else{
+    for(let count=0;count<number_of_box;count++){
+      let array_li= document.querySelector("#box-"+count);
+      array_li.style.backgroundColor="";
+      array_li.style.borderColor="#bdbdbd";
+      array_li.style.transform="scale(1,1)";
+            
+      console.log(document.querySelector("#box-"+count).value)
+    }
+    search();
+  }
 
-
-  document.querySelector(".found").style.display = "none";
-  document.querySelector(".not-found").style.display = "none";
-  box_count = 0;
-  const target = document.querySelector("#target");
-  target.style.background= "#fef6f6";
-  target.style.transform = "scale(1, 1)";
-  target.style.borderColor = "#bdbdbd";
-  const arrkeli = document.querySelector(".array-box");
-  arrkeli.style.background = "#fef6f6";
-  arrkeli.style.borderColor = "#bdbdbd";
-  search();
+  
+  
   //   timer = setInterval(search, 1500);
 });
+
+
 function search() {
   const box = document.querySelector("#box-" + box_count);
 
   // needed to be removed
-  console.log(box_count);
-  console.log(number_of_box);
+  // console.log(box_count);
+  // console.log(number_of_box);
   if (box_count == number_of_box) {
     complete();
 
     document.querySelector(".not-found").style.display = "flex";
     return;
   }
+  console.log("reached"+ box_count)
   tl.to(box, 0.5, {
     backgroundColor: "none",
     borderColor: "#3a91ba",

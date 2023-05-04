@@ -11,7 +11,7 @@
 .animation_area{
    display: flex;
    border: 2px dotted Red;
-   height: fit-content;
+   min-height: 40vh;
    flex-direction: column;
 
 }
@@ -44,6 +44,7 @@
    font-size: 32px;
    
 }
+
 .target_box{
    display: none;
    position: relative;
@@ -148,6 +149,12 @@
 
    margin: 1% 20%
 }
+
+.found img{
+   height: auto;
+   width: 200px;
+}
+
 .not-found img{
    height: auto;
    width: 200px;
