@@ -3,8 +3,9 @@ const tl = new TimelineMax();
 var number_of_box = 0;
 
 function input_array() {
-  // let number_array = document.getElementById("number_array").value;
-  let number_array = "1 6 5 7 8";
+  let number_array = document.getElementById("number_array").value;
+  // let number_array = "1 6 5 777 9 ";
+  number_of_box = 0;
 
   document.querySelector(".found").style.display = "none";
   document.querySelector(".not-found").style.display = "none";
@@ -33,10 +34,28 @@ function input_array() {
           box.childNodes[i]
         );
         arrayboxes.appendChild(box);
+          f();
+
+        function f(){
+          tl.fromTo(
+            box,
+            0.3,
+            {
+              y: -100,
+              opacity: 0,
+              ease: "easeOut",
+            },
+            {
+              y: 0,
+              opacity: 1,
+            }
+          );
+        }
         // box.appendChild(box_li)
       }
     }
     create_array();
+
   } else {
     alert(
       "Please provide a valid input: \n \tArray should be separated by space  \n \tarray size must be between 3 and 15"
@@ -44,9 +63,24 @@ function input_array() {
   }
 }
 
+document.querySelector("#submit").addEventListener("click", () => {
+  if (tl.isActive()) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return false;
+  }
+  input_array();
+  target_input();
+  const target = document.querySelector("#target");
+  target.style.background= "none";
+  target.style.transform = "scale(1, 1)";
+  target.style.borderColor = "#bdbdbd";
+
+});
+
 function target_input() {
-  // const target_number = document.querySelector("#target_number").value;
-  const target_number = "9";
+  const target_number = document.querySelector("#target_number").value;
+  // const target_number = "9";
 
   // console.log(target_number)
   const target = document.querySelector("#target");
@@ -54,6 +88,26 @@ function target_input() {
 
   target.style.display = "flex";
   document.querySelector(".target_box").style.display = "flex";
+
+  f();
+
+        function f(){
+          tl.fromTo(
+            ".target_box",
+            0.3,
+            {
+              x: -100,
+              opacity: 0,
+              ease: "easeOut",
+            },
+            {
+              x: 0,
+              opacity: 1,
+            }
+          );
+        }
+
+
   // document.getElementById("target")
 }
 
@@ -69,16 +123,24 @@ document.querySelector("#animate").addEventListener("click", () => {
     return false;
   }
 
+
   document.querySelector(".found").style.display = "none";
   document.querySelector(".not-found").style.display = "none";
   box_count = 0;
+  const target = document.querySelector("#target");
+  target.style.background= "#fef6f6";
+  target.style.transform = "scale(1, 1)";
+  target.style.borderColor = "#bdbdbd";
+  const arrkeli = document.querySelector(".array-box");
+  arrkeli.style.background = "#fef6f6";
+  arrkeli.style.borderColor = "#bdbdbd";
   search();
   //   timer = setInterval(search, 1500);
 });
 function search() {
   const box = document.querySelector("#box-" + box_count);
 
-  // needed to be removed 
+  // needed to be removed
   console.log(box_count);
   console.log(number_of_box);
   if (box_count == number_of_box) {
@@ -88,23 +150,32 @@ function search() {
     return;
   }
   tl.to(box, 0.5, {
-    backgroundColor: "#888888",
+    backgroundColor: "none",
+    borderColor: "#3a91ba",
+    transform: "scale(1.1, 1.1)"
+
   }).to(
     target,
     0.5,
     {
-      backgroundColor: "#888888",
+      backgroundColor: "none",
+      borderColor: "#3a91ba",
+      transform: "scale(1.1, 1.1)"
     },
     "-=0.5"
   );
   if (box.textContent == target.textContent) {
     tl.to(box, 0.5, {
-      backgroundColor: "#06c915",
+      
+      backgroundColor: "#32cf4e",
+      borderColor: "#32cf4e",
     }).to(
       target,
       0.5,
       {
-        backgroundColor: "#06c915",
+        
+      backgroundColor: "#32cf4e",
+        borderColor: "#32cf4e",
       },
       "-=0.5"
     );
@@ -118,24 +189,29 @@ function search() {
     return;
   } else {
     tl.to(box, 0.5, {
-      backgroundColor: "#eb012a",
+      backgroundColor: "#ff4545",
+      borderColor: "#eb012a",
+
     })
       .to(
         target,
         0.5,
         {
-          backgroundColor: "#eb012a",
+          backgroundColor: "#ff4545",
+          borderColor: "#eb012a",
         },
         "-=0.5"
       )
       .to(box, 0.5, {
-        backgroundColor: "#fff",
+        borderColor: "#ff4545",
+        transform: "scale(1, 1)"
       })
       .to(
         target,
         0.5,
         {
-          backgroundColor: "#fff",
+          borderColor: "#fff",
+          transform: "scale(1, 1)"
         },
         "-=0.5"
       );
@@ -173,8 +249,36 @@ document.querySelector(".slider").addEventListener("click", () => {
   }
 });
 
+// Improved Animation
 
+// const tween = new TimelineMax();
 
-// Improved Animation 
+// function beautify() {
 
+//   const animate_timer = setInterval(animate, 200);
+//   var box_no = 0;
+//   function animate() {
+//     tween.fromTo(
+//       "#box-" + box_no,
+//       0.3,
+//       {
+//         y: -100,
+//         opacity: 0,
+//         ease: "easeOut",
+//       },
+//       {
+//         y: 0,
+//         opacity: 1,
+//       }
+//     );
+//     box_no++;
+//   }
+// }
 
+// document.querySelector("#submit").addEventListener("click", () => {
+//   // beautify()
+//   if (tween.isActive()) {
+    
+//     return false;
+//   }
+// });

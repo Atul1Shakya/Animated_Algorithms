@@ -13,6 +13,7 @@
    border: 2px dotted Red;
    height: fit-content;
    flex-direction: column;
+
 }
 
 #arrayboxes {
@@ -22,7 +23,6 @@
    /* justify-content: center;
     align-items: center; */
 
-    top:16%;
     left: 1%;
 }
 
@@ -35,7 +35,7 @@
 .array-box {
    border: 2px solid #bdbdbd;
    border-radius: 5px;
-   padding: 1% 2%;
+   padding: .3% 1%;
    height: fit-content;
    display: flex;
    align-items: center;
@@ -63,7 +63,7 @@
 
    height: fit-content;
    width:fit-content;
-   padding: 1% 2%;
+   padding: .3% 1%;
    margin: 1%;
    align-items: center;
    justify-content: center;
@@ -99,7 +99,7 @@
    height: 90%;
    /* display: none; */
    overflow: hidden;
-   border: 3px rgb(53, 221, 255) solid;
+   border: 3px rgb(255, 53, 107) solid;
    padding: 10px;
    background-color: rgb(44, 44, 44);
    color: white;
@@ -110,7 +110,7 @@
 
 .input_array_active{
    height: 90%;
-   border: 3px rgb(53, 221, 255) solid;
+   border: 3px rgb(255, 53, 107) solid;
    padding: 10px;
    background-color: rgb(44, 44, 44);
    color: white;
@@ -121,7 +121,7 @@
    cursor: pointer;
    height: 90% ;
    display: flex;
-   background-color: red;
+   background-color: #ff4545;
    align-items: center;
    transition: all 0.5;
 
@@ -132,13 +132,17 @@
 }
 
 .buttons{
-
+   border: 2px solid #ff4545;
    color: white;
    margin: 0 2% 0 0;
+}
+.buttons:hover{
+   color: #ff4545;
 }
 
 .found , .not-found{
    display: none;
+   position: relative;
    flex-direction:column;
    align-items: center;
 
@@ -147,4 +151,13 @@
 .not-found img{
    height: auto;
    width: 200px;
+}
+
+#arrayboxes li{
+   opacity: 0;
+}
+#arrow{
+   position: absolute;
+   top: 46%;
+   left: 50%;
 }
