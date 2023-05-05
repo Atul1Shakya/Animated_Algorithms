@@ -5,6 +5,13 @@ var number_of_box = 0;
 // INPUT ARRAY CODE
 
 function input_array() {
+  const target_number = document.querySelector("#target_number").value;
+  // const target_number = "9";
+  if(target_number===""){
+    alert("target cannot be empty please provide a value")
+    return
+  }
+
   let number_array = document.getElementById("number_array").value;
   // let number_array = "1 6 5 777 9 ";
   number_of_box = 0;
@@ -90,7 +97,7 @@ function target_input() {
   const target_number = document.querySelector("#target_number").value;
   // const target_number = "9";
   if(target_number===""){
-    alert("target cannot be empty please provide a value")
+    // alert("target cannot be empty please provide a value")
   }
   else{
 

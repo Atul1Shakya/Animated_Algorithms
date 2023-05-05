@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
  }
- 
  .binary_search_container{
     height: 400px;
  }
@@ -11,7 +10,7 @@
  .animation_area{
     display: flex;
     border: 2px dotted Red;
-    height: fit-content;
+    min-height: 40vh;
     flex-direction: column;
  
  }
