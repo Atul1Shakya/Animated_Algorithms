@@ -1,0 +1,6 @@
+for linear search
+    target can take alphabet as input
+    inout only target is running --> it shouldnt
+    content alignment is messed up
+    
+
