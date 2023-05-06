@@ -130,49 +130,142 @@ document.querySelector("#submit").addEventListener("click", () => {
 
 function binary_search() { 
   start = 0;
-  end = final_array.length;
+  end = final_array.length-1;
+
   while(start<=end)
   {
-    mid = Math.floor((start+end) / 2);
+    var x;
+    mid = Math.floor((start+end) / 2);  
     const mid_box=document.querySelector("#box-"+mid)
     const final_target=document.querySelector("#target")
-    tl.to(final_target,1,{
-      backgroundColor: "#888888"
-    })
     if(final_array[mid]==target_number)
     {
-      tl.to(mid_box,1,{
-        backgroundColor: "#888888"
-      })
-      
-      tl.to(mid_box,1,{
-        backgroundColor: "#00F720"
-      })
-      // tl.to(final_target,1,{
-      //   backgroundColor: "#00F720"
-      // })
+      tl.to(mid_box, 0.5, {
+        backgroundColor: "none",
+        borderColor: "#3a91ba",
+        transform: "scale(1.1, 1.1)"
+    
+      }).to(
+        final_target,
+        0.5,
+        {
+          backgroundColor: "none",
+          borderColor: "#3a91ba",
+          transform: "scale(1.1, 1.1)"
+        },
+        "-=0.5"
+      );
+      tl.to(mid_box, 1, {
+        backgroundColor: "#32cf4e",
+        borderColor: "#32cf4e",
+        transform: "scale(1.1, 1.1)"
+    
+      }).to(final_target,
+        1,
+        {
+          backgroundColor: "#32cf4e",
+          borderColor: "#32cf4e",
+          transform: "scale(1.1, 1.1)"
+        },
+        "-=1"
+      );
       break;
     }
     else
     if(final_array[mid]>target_number)
     {
-      end=mid-1;
-      
-      tl.to(mid_box,1,{
-        backgroundColor: "#FF0000"
-      })
+      tl.to(mid_box, 0.5, {
+        backgroundColor: "none",
+        borderColor: "#3a91ba",
+        transform: "scale(1.1, 1.1)"
+    
+      }).to(
+        final_target,
+        0.5,
+        {
+          backgroundColor: "none",
+          borderColor: "#3a91ba",
+          transform: "scale(1.1, 1.1)"
+        },
+        "-=0.5"
+      );
+      tl.to(mid_box, 1, {
+        backgroundColor: "#FF0000",
+        borderColor: "#FF0000",
+        transform: "scale(1.1, 1.1)"
+        
+      }).to(final_target,
+        1,
+        {
+          backgroundColor: "#FF0000",
+          borderColor: "#FF0000",
+          transform: "scale(1.1, 1.1)"
+        },
+        "-=1"
+        );
+        tl.to(final_target,1,{
+          backgroundColor: "none",
+          borderColor: "#888888",
+          transform: "none"
+        })
+        for(x=mid+1;x<=end;++x)
+      {
+        const temp_box=document.querySelector("#box-"+x);
+        tl.to(temp_box, 0.3, {
+          backgroundColor: "#FF0000",
+          borderColor: "#000000"
+        });
+      }
+        end=mid-1;
     }
     else
     {
-      tl.to(mid_box,1,{
-        backgroundColor: "#FF0000"
+      tl.to(mid_box, 0.5, {
+        backgroundColor: "none",
+        borderColor: "#3a91ba",
+        transform: "scale(1.1, 1.1)"
+    
+      }).to(
+        final_target,
+        0.5,
+        {
+          backgroundColor: "none",
+          borderColor: "#3a91ba",
+          transform: "scale(1.1, 1.1)"
+        },
+        "-=0.5"
+      );
+      tl.to(mid_box, 1, {
+        backgroundColor: "#FF0000",
+        borderColor: "#FF0000",
+        transform: "scale(1.1, 1.1)"
+    
+      }).to(final_target,
+        1,
+        {
+          backgroundColor: "#FF0000",
+          borderColor: "#FF0000",
+          transform: "scale(1.1, 1.1)"
+        },
+        "-=1"
+      );
+      tl.to(final_target,1,{
+        backgroundColor: "none",
+        borderColor: "#888888",
+        transform: "none"
       })
+      for(x=start;x<mid;++x)
+      {
+        const temp_box=document.querySelector("#box-"+x);
+        tl.to(temp_box, 0.3, {
+          backgroundColor: "#FF0000",
+          borderColor: "#000000"
+        });
+      }
       start=mid+1;
     }
   }
 }
-
-
 document.querySelector("#animate").addEventListener("click", () => {
   binary_search();
 });
