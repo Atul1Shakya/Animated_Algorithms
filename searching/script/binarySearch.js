@@ -267,5 +267,13 @@ function binary_search() {
   }
 }
 document.querySelector("#animate").addEventListener("click", () => {
+  for(let count=0;count<number_of_box;count++){
+    let array_li= document.querySelector("#box-"+count);
+    array_li.style.backgroundColor="";
+    array_li.style.borderColor="#bdbdbd";
+    array_li.style.transform="scale(1,1)";
+          
+    console.log(document.querySelector("#box-"+count).value)
+  }
   binary_search();
 });

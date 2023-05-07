@@ -69,7 +69,9 @@
 
   <div class="content">
     <h1>Binary Search</h1>
-    <p>Binary Search is a searching algorithm used in a sorted array by repeatedly dividing the search interval in half. The idea of binary search is to use the information that the array is sorted and reduce the time complexity to O(Log n). </p>
+    <p>Binary Search is a searching algorithm used in a sorted array by repeatedly dividing the search interval in half.
+      The idea of binary search is to use the information that the array is sorted and reduce the time complexity to
+      O(Log n). </p>
 
 
     <h3>
@@ -80,8 +82,10 @@
       <li>Set the low index to the first element of the array and the high index to the last element.</li>
       <li>Set the middle index to the average of the low and high indices.</li>
       <li>If the element at the middle index is the target element, return the middle index.</li>
-      <li>If the target element is less than the element at the middle index, set the high index to the middle index –1.</li>
-      <li>If the target element is greater than the element at the middle index, set the low index to the middle index + 1.</li>
+      <li>If the target element is less than the element at the middle index, set the high index to the middle index –1.
+      </li>
+      <li>If the target element is greater than the element at the middle index, set the low index to the middle index +
+        1.</li>
       <li>Repeat steps 3-6 until the element is found or it is clear that the element is not present in the array.</li>
     </ol>
 
@@ -111,24 +115,24 @@
           <li>left = 0</li>
           <li>right = length of array - 1</li>
           <li>while left <= right do:</li>
-            <ul class="pseudo-code-list">
-              <li>mid = floor((left + right) / 2)</li>
-              <li>if array[mid] equals target then:
-                <ul class="pseudo-code-list">
-                  <li>return mid</li>
-                </ul>
-              </li>
-              <li>else if array[mid] > target then:
-                <ul class="pseudo-code-list">
-                  <li>right = mid - 1</li>
-                </ul>
-              </li>
-              <li>else:
-                <ul class="pseudo-code-list">
-                  <li>left = mid + 1</li>
-                </ul>
-              </li>
-            </ul>
+              <ul class="pseudo-code-list">
+                <li>mid = floor((left + right) / 2)</li>
+                <li>if array[mid] equals target then:
+                  <ul class="pseudo-code-list">
+                    <li>return mid</li>
+                  </ul>
+                </li>
+                <li>else if array[mid] > target then:
+                  <ul class="pseudo-code-list">
+                    <li>right = mid - 1</li>
+                  </ul>
+                </li>
+                <li>else:
+                  <ul class="pseudo-code-list">
+                    <li>left = mid + 1</li>
+                  </ul>
+                </li>
+              </ul>
           </li>
           <li>return -1</li>
         </ul>
@@ -141,65 +145,93 @@
 
 
 
-<!-- form for animations -->
+    <!-- form for animations -->
 
 
-<div class="binary_search_container">
-  <div class="input_area">
-    <div class="input_array">
-      <form onsubmit="return false">
-        <span>Enter elements of array(seperated by space)</span>
-        <input autocomplete="off" id="number_array" type="text"><br>
-        <span>Enter the target number</span>
-        <input autocomplete="off" id="target_number" type="text"><br>
-        <input type="submit" class=" btn buttons" id="submit">
+    <div class="binary_search_container">
+      <div class="input_area">
+        <div class="input_array">
+          <form onsubmit="return false">
+            <span>Enter elements of array(seperated by space)</span>
+            <input autocomplete="off" id="number_array" type="text"><br>
+            <span>Enter the target number</span>
+            <input autocomplete="off" id="target_number" type="text"><br>
+            <input type="submit" class=" btn buttons" id="submit">
 
-        <button class="btn buttons" id="animate">Animate</button>
-      </form>
-    </div>
-    <div class="slider">
-      <svg id="slider_svg" width="700pt" height="700pt" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="m280 280 178.5-180.25c4.4375-4.4375 6.1719-10.91 4.5469-16.973s-6.3594-10.801-12.426-12.426c-6.0625-1.625-12.531 0.10938-16.973 4.5469l-192.15 192.85c-3.3125 3.2852-5.1758 7.7578-5.1758 12.426 0 4.6641 1.8633 9.1367 5.1758 12.426l192.5 192.5c4.4375 4.4375 10.91 6.1719 16.973 4.5469s10.801-6.3633 12.426-12.426-0.10938-12.535-4.5469-16.973z"
-          fill="#010101" />
-      </svg>
-    </div>
-  </div>
-  <div class="animation_area">
-    <div class="givenarray" id="arrbox">
-      <ul id="arrayboxes"></ul>
-    </div>
-    <div class="target_box">
-      <span>Target -> </span>
-      <span id="target"></span>
-    </div>
-    <div class="found">
-      <h3></h3>
-      <!-- target image -->
-      <svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M120 80C120 124.183 93.1371 160 60 160C26.8629 160 0 124.183 0 80C0 35.8172 26.8629 0 60 0C93.1371 0 120 35.8172 120 80Z" fill="white"/>
-        <path d="M110 79.665C110 116.483 87.6142 146.33 60 146.33C32.3858 146.33 10 116.483 10 79.665C10 42.8469 32.3858 13 60 13C87.6142 13 110 42.8469 110 79.665Z" fill="black"/>
-        <path d="M102 80C102 110.928 83.196 136 60 136C36.804 136 18 110.928 18 80C18 49.0721 36.804 24 60 24C83.196 24 102 49.0721 102 80Z" fill="white"/>
-        <path d="M90 80C90 102.091 76.5685 120 60 120C43.4315 120 30 102.091 30 80C30 57.9086 43.4315 40 60 40C76.5685 40 90 57.9086 90 80Z" fill="black"/>
-        <path d="M83 80C83 96.5685 72.9264 110 60.5 110C48.0736 110 38 96.5685 38 80C38 63.4315 48.0736 50 60.5 50C72.9264 50 83 63.4315 83 80Z" fill="white"/>
-        <path d="M68 80C68 85.5228 64.6421 90 60.5 90C56.3579 90 53 85.5228 53 80C53 74.4772 56.3579 70 60.5 70C64.6421 70 68 74.4772 68 80Z" fill="#FF0000"/>
-        </svg>
-
-        <!-- Arrow image -->
-        <svg id="arrow" width="188" height="19" viewBox="0 0 188 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M186.072 3.49825C186.9 3.45821 187.538 2.75496 187.498 1.9275C187.458 1.10005 186.755 0.461715 185.928 0.501753L186.072 3.49825ZM-3.8147e-06 11L15.401 18.9252L14.5639 1.62491L-3.8147e-06 11ZM185.928 0.501753L13.4117 8.84929L13.5567 11.8458L186.072 3.49825L185.928 0.501753Z" fill="black"/>
+            <button class="btn buttons" id="animate">Animate</button>
+          </form>
+        </div>
+        <div class="slider">
+          <svg id="slider_svg" width="700pt" height="700pt" version="1.1" viewBox="0 0 700 700"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m280 280 178.5-180.25c4.4375-4.4375 6.1719-10.91 4.5469-16.973s-6.3594-10.801-12.426-12.426c-6.0625-1.625-12.531 0.10938-16.973 4.5469l-192.15 192.85c-3.3125 3.2852-5.1758 7.7578-5.1758 12.426 0 4.6641 1.8633 9.1367 5.1758 12.426l192.5 192.5c4.4375 4.4375 10.91 6.1719 16.973 4.5469s10.801-6.3633 12.426-12.426-0.10938-12.535-4.5469-16.973z"
+              fill="#010101" />
           </svg>
-          
-        
-    </div>
-    <div class="not-found">
-      <img src="resource/not_found.jpg" alt="">
-      Target Not Found <br>
-      Misson failed Will Get it next time
+        </div>
+      </div>
+      <div class="animation_area">
+        <div class="givenarray" id="arrbox">
+          <ul id="arrayboxes"></ul>
+        </div>
+        <div class="start_end">
 
+
+          <div class="start_box">
+            <span id="start-text">Start -> </span>
+            <span id="start"></span>
+          </div>
+          <div class="end_box">
+            <span id="end-text">End -> </span>
+            <span id="end"></span>
+          </div>
+        </div>
+        <div class="target_box">
+          <span>Target -> </span>
+          <span id="target"></span>
+        </div>
+
+        <div class="found">
+          <h3></h3>
+          <!-- target image -->
+          <svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M120 80C120 124.183 93.1371 160 60 160C26.8629 160 0 124.183 0 80C0 35.8172 26.8629 0 60 0C93.1371 0 120 35.8172 120 80Z"
+              fill="white" />
+            <path
+              d="M110 79.665C110 116.483 87.6142 146.33 60 146.33C32.3858 146.33 10 116.483 10 79.665C10 42.8469 32.3858 13 60 13C87.6142 13 110 42.8469 110 79.665Z"
+              fill="black" />
+            <path
+              d="M102 80C102 110.928 83.196 136 60 136C36.804 136 18 110.928 18 80C18 49.0721 36.804 24 60 24C83.196 24 102 49.0721 102 80Z"
+              fill="white" />
+            <path
+              d="M90 80C90 102.091 76.5685 120 60 120C43.4315 120 30 102.091 30 80C30 57.9086 43.4315 40 60 40C76.5685 40 90 57.9086 90 80Z"
+              fill="black" />
+            <path
+              d="M83 80C83 96.5685 72.9264 110 60.5 110C48.0736 110 38 96.5685 38 80C38 63.4315 48.0736 50 60.5 50C72.9264 50 83 63.4315 83 80Z"
+              fill="white" />
+            <path
+              d="M68 80C68 85.5228 64.6421 90 60.5 90C56.3579 90 53 85.5228 53 80C53 74.4772 56.3579 70 60.5 70C64.6421 70 68 74.4772 68 80Z"
+              fill="#FF0000" />
+          </svg>
+
+          <!-- Arrow image -->
+          <svg id="arrow" width="188" height="19" viewBox="0 0 188 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M186.072 3.49825C186.9 3.45821 187.538 2.75496 187.498 1.9275C187.458 1.10005 186.755 0.461715 185.928 0.501753L186.072 3.49825ZM-3.8147e-06 11L15.401 18.9252L14.5639 1.62491L-3.8147e-06 11ZM185.928 0.501753L13.4117 8.84929L13.5567 11.8458L186.072 3.49825L185.928 0.501753Z"
+              fill="black" />
+          </svg>
+
+
+        </div>
+        <div class="not-found">
+          <img src="resource/not_found.jpg" alt="">
+          Target Not Found <br>
+          Misson failed Will Get it next time
+
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
 
 
