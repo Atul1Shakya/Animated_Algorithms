@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <!-- font- lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+    <title>Template</title>
+    <link rel="stylesheet" href="css/merge_sorting.css">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffaaaa">
+        <a class="navbar-brand" href="#">
+            <img src="resource/nav-logo.png" width="180" alt="" />
+        </a>
+        <button class="navbar-toggler me-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <h4 class="nav-item disabled">\Sorting</h4>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="bubble_sort.html">Bubble</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="selection_sort.html">Selection</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="insertion_sort.html">Insertion</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="merge_sort.html">Merge</a>
+                </li>
+
+                <!--li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search Algorithms..."
+                    aria-label="Search" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        GO
+                    </button>
+
+                <!-- ANOTHER OPTION 
+            <button class="btn btn-outline-light btn-dark my-2 my-sm-0" type="submit">GO</button> -->
+            </form>
+        </div>
+    </nav>
+
+    <!-- content -->
+
+    <div class="content">
+        <h1>Merge Sort</h1>
+        <p>Merge sort is a sorting algorithm that uses a divide-and-conquer approach to sort an array or a list of
+            elements. It works by breaking down the input list into smaller sub-lists, sorting those sub-lists
+            recursively, and then merging them back together to produce a sorted output list. </p>
+
+
+        <h3>
+            How Merge Sort Works?
+        </h3>
+        <ol>
+            <li>Divide the unsorted list into n sublists, each containing one element (a list of one element is
+                considered sorted).</li>
+            <li>Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This
+                will be the sorted list.</li>
+            <li>The merge operation works as follows:
+
+                <br> Compare the first element of each sublist.
+
+                <br> Move the smaller element to the new list.
+
+                <br> Repeat step 2 until one of the sublists is empty.
+
+                <br> Copy the remaining elements of the non-empty sublist to the new list.
+            </li>
+            <li>The merge sort algorithm works by recursively dividing the list into halves until we get to a point
+                where there is only one element in each list. We then merge these lists to form a sorted list. The
+                merging of the lists is done by repeatedly comparing the first element of each list and appending the
+                smaller element to a new list. </li>
+
+        </ol>
+
+
+        <h3>
+            Complexity Analysis of Merge Sort:
+        </h3>
+        <h5>Time Complexity:</h5>
+        <ul>
+            <li><b>Best Case:</b> <i>O(n log n)</i></li>
+            <li><b>Worst Case:</b> <i>O(n log n)</i></li>
+            <li><b>Average Case:</b> <i>O(n log n)</i></li>
+
+        </ul>
+        <h5 class="spacecomplexity">Auxiliary Space:</h5>
+        <i>O(n)</i>because it requires additional memory to hold the sorted subarrays during the merging process.
+
+        <h3>Pseudo Code</h3>
+
+
+        <li>
+            function mergeSort(A: list of sortable items)
+            <br> if length(A) <= 1 <br> return A
+                <br> else
+                <br> mid := floor(length(A) / 2)
+                <br> left := mergeSort(A[0..mid-1])
+                <br> right := mergeSort(A[mid..length(A)-1])
+                <br> return merge(left, right)
+                <br> end if
+                <br> end function
+
+                <br> function merge(left: list of sortable items, right: list of sortable items)
+                <br> result := empty list
+                <br> while length(left) > 0 and length(right) > 0 do
+                <br> if left[0] <= right[0] <br> result.append(left[0])
+                    <br> left.remove(left[0])
+                    <br> else
+                    <br> result.append(right[0])
+                    <br> right.remove(right[0])
+                    <br> end if
+                    <br> end while
+                    <br> if length(left) > 0
+                    <br> result.extend(left)
+                    <br> else
+                    <br> result.extend(right)
+                    <br> end if
+                    <br> return result
+                    <br> end function
+
+        </li>
+
+
+
+        <!-- form for animations -->
+
+        <div class="sorting-area">
+            <div class="input-area">
+                <div class="input">
+                    <form onsubmit="return false">
+                        <div class="input-div">Enter the array: <input id="array-input" type="text"></div>
+                        <div class="form-button-area submit-div"><input class="form-buttons" id="submit" type="submit"></div>
+                        <div class="form-button-area animate-div"><button class="form-buttons" id="animate">animate</button></div>
+                    </form>
+                </div>
+                <div class="carousel">
+                    <svg id="slider-svg" width="700pt" height="700pt" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="m280 280 178.5-180.25c4.4375-4.4375 6.1719-10.91 4.5469-16.973s-6.3594-10.801-12.426-12.426c-6.0625-1.625-12.531 0.10938-16.973 4.5469l-192.15 192.85c-3.3125 3.2852-5.1758 7.7578-5.1758 12.426 0 4.6641 1.8633 9.1367 5.1758 12.426l192.5 192.5c4.4375 4.4375 10.91 6.1719 16.973 4.5469s10.801-6.3633 12.426-12.426-0.10938-12.535-4.5469-16.973z"
+                          fill="#010101" />
+                      </svg>
+                </div>
+            </div>
+            <div class="animation-area">
+                <span class="diverge-array"></span>
+                <div class="converge-array"></div>
+            </div>
+        </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Flip.min.js" integrity="sha512-aW9AOex6eTI5fwQAtEuIAd7wHW0xgm/OzRnw5+UZ49RMCRKIyEdf2SLoxQ4STMx0NoX9wIBXLlruAog9ZTzrSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js" integrity="sha512-O+atZ/gABlcFlpIoLQR04f72qHqZWKwTVsQZHqk/8VE2nrzDlnqhXbnXP7Gh/TyhpPT8tEUm5A580GG8AloHTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js" integrity="sha512-ExEP0u1SOp7gvzBoHWYmi6CEzdW2VHgfMeRZTetgX4HazJhC/UO1l83VGn4TLvgmIAxotN8uBcDE05a3sJglOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="script/merge_sorting.js"></script>
+
+</html>
