@@ -1,4 +1,4 @@
-const tl= new TimelineMax();
+const tl = new TimelineMax();
 gsap.registerPlugin(Flip);
 //INPUT FUNCTIONING
 let finalInput = "";// input array
@@ -30,19 +30,19 @@ function input() {
                 box.appendChild(document.createTextNode(finalInput[i]));
                 holder.appendChild(box);
                 divergeArray.appendChild(holder);
-                
-                
+
+
                 // box.appendChild(box_li)
 
 
             }
         }
         create_array()
-                const holderAnimate= document.querySelectorAll(".holder")
-                holderAnimate.forEach(hl => {
-                    tl.fromTo(hl, 0.1, {opacity: '0%'}, {opacity: '100%', ease: "Power2.easeInOut"} )
-                    .fromTo(hl, 0.1, {y: '-50%'}, {y: '0%', ease: "Power2.easeInOut"} )                    
-                });
+        const holderAnimate = document.querySelectorAll(".holder")
+        holderAnimate.forEach(hl => {
+            tl.fromTo(hl, 0.1, { opacity: '0%' }, { opacity: '100%', ease: "Power2.easeInOut" })
+                .fromTo(hl, 0.1, { y: '-50%' }, { y: '0%', ease: "Power2.easeInOut" })
+        });
 
     }
     else {
@@ -60,7 +60,7 @@ submitButton.addEventListener('click', () => {
         e.preventDefault();
         e.stopImmediatePropagation();
         return false;
-      }
+    }
     input();
 })
 
@@ -76,7 +76,6 @@ function animate() {
 
     function divide(div) {
         const children = div.querySelectorAll('.holder');
-
         if (children.length === 0) {
             return;
         }
@@ -92,7 +91,6 @@ function animate() {
             leftDiv.setAttribute('class', `child child-iteration-${iteration} child-branch-left`);
             const rightDiv = document.createElement('div');
             rightDiv.setAttribute('class', `child child-iteration-${iteration} child-branch-right`);
-
             for (let i = 0; i < children.length; i++) {
                 const child = children[i]
                 if (i < divisionIndex) {
@@ -105,9 +103,10 @@ function animate() {
             div.appendChild(leftDiv);
             div.appendChild(rightDiv);
 
-7-divide(leftDiv)
-            divide(rightDiv)
 
+            divide(leftDiv)
+            divide(rightDiv)
+            
         }
 
     }
@@ -115,70 +114,70 @@ function animate() {
     const parent = document.querySelector(".diverge-array");
     divide(parent);
     // console.log(?"concerge")
-    
-    function converge(){
-        for(let k=iteration;k>=1;k--){
-            let leftl= ".child-iteration-"+k+".child-branch-left";
-            let iteration_number= ".child-iteration-"+k;
-            let leftleaf= document.querySelector(leftl);
-            let rightl= ".child-iteration-"+k+".child-branch-right";
-            let rightleaf= document.querySelector(rightl);
-            let parentDiv= document.querySelector(iteration_number).parentElement;
-            let indexCount=0;
-            while(leftleaf.children[0]!=undefined&&rightleaf.children[0]!=undefined){
-                if(parseInt(leftleaf.children[0].textContent)<=parseInt(rightleaf.children[0].textContent)){
+
+    function converge() {
+        for (let k = iteration; k >= 1; k--) {
+            let leftl = ".child-iteration-" + k + ".child-branch-left";
+            let iteration_number = ".child-iteration-" + k;
+            let leftleaf = document.querySelector(leftl);
+            let rightl = ".child-iteration-" + k + ".child-branch-right";
+            let rightleaf = document.querySelector(rightl);
+            let parentDiv = document.querySelector(iteration_number).parentElement;
+            let indexCount = 0;
+            while (leftleaf.children[0] != undefined && rightleaf.children[0] != undefined) {
+                if (parseInt(leftleaf.children[0].textContent) <= parseInt(rightleaf.children[0].textContent)) {
                     // console.log(leftleaf.children[0])
                     // console.log(rightleaf.children[0])
                     console.log(parentDiv.childNodes[indexCount])
                     parentDiv.replaceChild(leftleaf.children[0], parentDiv.childNodes[indexCount]);
-                    if(leftleaf.children[0]==undefined){
+                    if (leftleaf.children[0] == undefined) {
                         parentDiv.removeChild(leftleaf);
                     }
                     // leftleaf.removeChild(leftleaf.children[0])
                     // console.log(leftleaf.children[0])
                     // console.log(rightleaf.children[0])
                     console.log(parentDiv.childNodes[indexCount])
-                    console.log("index count-"+indexCount+"done")
+                    console.log("index count-" + indexCount + "done")
                     indexCount++;
                 }
-                else{
+                else {
                     // console.log(leftleaf.children[0])
                     // console.log(rightleaf.children[0])
                     console.log(parentDiv.childNodes[indexCount])
                     parentDiv.replaceChild(rightleaf.children[0], parentDiv.childNodes[indexCount]);
-                    if(rightleaf.children[0]==undefined){
+                    if (rightleaf.children[0] == undefined) {
                         parentDiv.removeChild(rightleaf);
                     }
                     // rightleaf.removeChild(rightleaf.children[0])
                     // console.log(leftleaf.children[0])
                     // console.log(rightleaf.children[0])
                     console.log(parentDiv.childNodes[indexCount])
-                    console.log("index count-"+indexCount+"done")
+                    console.log("index count-" + indexCount + "done")
                     indexCount++;
                 }
                 // console.log(iteration)            
-        }
-        if(leftleaf.children[0]===undefined){
-            while(rightleaf.children[0]!=undefined){
-                parentDiv.replaceChild(rightleaf.children[0],parentDiv.childNodes[indexCount])
-                indexCount++
             }
-            parentDiv.removeChild(rightleaf);
-            console.log("Appendl"+parentDiv.innerHTML)
-        }
-        else if(rightleaf.children[0]===undefined){
-            while(leftleaf.children[0]!=undefined){
-                parentDiv.replaceChild(leftleaf.children[0],parentDiv.childNodes[indexCount])
-                indexCount++
+            if (leftleaf.children[0] === undefined) {
+                while (rightleaf.children[0] != undefined) {
+                    parentDiv.replaceChild(rightleaf.children[0], parentDiv.childNodes[indexCount])
+                    indexCount++
+                }
+                parentDiv.removeChild(rightleaf);
+                console.log("Appendl" + parentDiv.innerHTML)
             }
-            parentDiv.removeChild(leftleaf);
-            console.log("Appendr"+parentDiv.innerHTML)
-        }
-        console.log("iteration-"+k+"done")
+            else if (rightleaf.children[0] === undefined) {
+                while (leftleaf.children[0] != undefined) {
+                    parentDiv.replaceChild(leftleaf.children[0], parentDiv.childNodes[indexCount])
+                    indexCount++
+                }
+                parentDiv.removeChild(leftleaf);
+                console.log("Appendr" + parentDiv.innerHTML)
+            }
+            console.log("iteration-" + k + "done")
         }
 
     }
-    
+
     // const convergeDelay= setTimeout(converge, 5000);
 
 }
@@ -189,6 +188,6 @@ animateButton.addEventListener('click', () => {
         e.preventDefault();
         e.stopImmediatePropagation();
         return false;
-      }
+    }
     animate();
 })

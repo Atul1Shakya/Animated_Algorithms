@@ -83,13 +83,13 @@
             How Merge Sort Works?
         </h3>
         <ol>
-            <li>Divide the unsorted list into n sublists, each containing one element (a list of one element is
+            &emsp;<li>Divide the unsorted list into n sublists, each containing one element (a list of one element is
                 considered sorted).</li>
             <li>Repeatedly merge sublists to produce new sorted sublists until there is only one sublist remaining. This
                 will be the sorted list.</li>
             <li>The merge operation works as follows:
 
-                <br> Compare the first element of each sublist.
+                <br> zeCompare the first element of each sublist.
 
                 <br> Move the smaller element to the new list.
 
@@ -121,36 +121,33 @@
         <h3>Pseudo Code</h3>
 
 
-        <li>
             function mergeSort(A: list of sortable items)
-            <br> if length(A) <= 1 <br> return A
-                <br> else
-                <br> mid := floor(length(A) / 2)
-                <br> left := mergeSort(A[0..mid-1])
-                <br> right := mergeSort(A[mid..length(A)-1])
-                <br> return merge(left, right)
-                <br> end if
-                <br> end function
+            <br> &emsp;if length(A) <= 1 <br> &emsp;&emsp;return A
+                <br> &emsp;else
+                <br> &emsp;&emsp;mid := floor(length(A) / 2)
+                <br> &emsp;&emsp;left := mergeSort(A[0..mid-1])
+                <br> &emsp;&emsp;right := mergeSort(A[mid..length(A)-1])
+                <br> &emsp;&emsp;return merge(left, right)
+                <br> &emsp;end if
+                <br> end function <br>
 
                 <br> function merge(left: list of sortable items, right: list of sortable items)
-                <br> result := empty list
-                <br> while length(left) > 0 and length(right) > 0 do
-                <br> if left[0] <= right[0] <br> result.append(left[0])
-                    <br> left.remove(left[0])
-                    <br> else
-                    <br> result.append(right[0])
-                    <br> right.remove(right[0])
-                    <br> end if
-                    <br> end while
-                    <br> if length(left) > 0
-                    <br> result.extend(left)
-                    <br> else
-                    <br> result.extend(right)
-                    <br> end if
-                    <br> return result
-                    <br> end function
-
-        </li>
+                <br> &emsp;result := empty list
+                <br> &emsp;while length(left) > 0 and length(right) > 0 do
+                <br> &emsp;&emsp;if left[0] <= right[0] <br> result.append(left[0])
+                <br> &emsp;&emsp;&emsp;left.remove(left[0])
+                <br> &emsp;&emsp;else
+                <br> &emsp;&emsp;&emsp;result.append(right[0])
+                <br> &emsp;&emsp;&emsp;right.remove(right[0])
+                <br> &emsp;&emsp;end if
+                <br> &emsp;end while
+                <br> &emsp;if length(left) > 0
+                <br> &emsp;&emsp;result.extend(left)
+                <br> &emsp;else
+                <br> &emsp;&emsp;result.extend(right)
+                <br> &emsp;end if
+                <br> &emsp;return result
+                <br> end function
 
 
 

@@ -22,6 +22,10 @@ body{
     font-weight: 400;
     margin: .5% 3%;
 }
+.content ol{
+    /* border: 2px solid black; */
+    margin-left: 2%;
+}
 .spacecomplexity{
     display:inline-block;
 }
