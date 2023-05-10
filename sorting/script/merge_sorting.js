@@ -63,10 +63,10 @@ submitButton.addEventListener('click', () => {
     }
     input();
 })
-
+let finished=0;
 //NOW IT'S TIME TO ANIMATE THIS
 function animate() {
-
+    // let batch = Flip.batch(".holder");
     // DIVERGING THE INPUT ARRAY 
     let removeChild = document.querySelectorAll(".child");
     removeChild.forEach(childRemove => {
@@ -95,25 +95,41 @@ function animate() {
                 const child = children[i]
                 if (i < divisionIndex) {
                     leftDiv.appendChild(child.cloneNode(true));
+                    
                 }
                 else {
                     rightDiv.appendChild(child.cloneNode(true));
                 }
             }
+            let Div= `.child-iteration-${iteration}`;
+            let leftDivanimate= document.querySelector(Div)
             div.appendChild(leftDiv);
             div.appendChild(rightDiv);
+            tl.fromTo(Div, 1,{
+                y: -100,
+                opacity: 0,
+                transform: "scale(0,0)"
+            },
+            {
+                y: 0,
+                opacity: 1,
+                transform: "scale(1,1)"
+            })
 
 
             divide(leftDiv)
             divide(rightDiv)
+            timeoutFlag=true;
             
         }
+
 
     }
 
     const parent = document.querySelector(".diverge-array");
-    divide(parent);
+    divide(parent)
     // console.log(?"concerge")
+    tl.eventCallback('onComplete', converge)
 
     function converge() {
         for (let k = iteration; k >= 1; k--) {
@@ -126,33 +142,23 @@ function animate() {
             let indexCount = 0;
             while (leftleaf.children[0] != undefined && rightleaf.children[0] != undefined) {
                 if (parseInt(leftleaf.children[0].textContent) <= parseInt(rightleaf.children[0].textContent)) {
-                    // console.log(leftleaf.children[0])
-                    // console.log(rightleaf.children[0])
-                    console.log(parentDiv.childNodes[indexCount])
+                    // console.log(parentDiv.childNodes[indexCount])
                     parentDiv.replaceChild(leftleaf.children[0], parentDiv.childNodes[indexCount]);
                     if (leftleaf.children[0] == undefined) {
                         parentDiv.removeChild(leftleaf);
                     }
-                    // leftleaf.removeChild(leftleaf.children[0])
-                    // console.log(leftleaf.children[0])
-                    // console.log(rightleaf.children[0])
-                    console.log(parentDiv.childNodes[indexCount])
-                    console.log("index count-" + indexCount + "done")
+                    // console.log(parentDiv.childNodes[indexCount])
+                    // console.log("index count-" + indexCount + "done")
                     indexCount++;
                 }
                 else {
-                    // console.log(leftleaf.children[0])
-                    // console.log(rightleaf.children[0])
-                    console.log(parentDiv.childNodes[indexCount])
+                    // console.log(parentDiv.childNodes[indexCount].innerHTML)
                     parentDiv.replaceChild(rightleaf.children[0], parentDiv.childNodes[indexCount]);
                     if (rightleaf.children[0] == undefined) {
                         parentDiv.removeChild(rightleaf);
                     }
-                    // rightleaf.removeChild(rightleaf.children[0])
-                    // console.log(leftleaf.children[0])
-                    // console.log(rightleaf.children[0])
-                    console.log(parentDiv.childNodes[indexCount])
-                    console.log("index count-" + indexCount + "done")
+                    // console.log(parentDiv.childNodes[indexCount].innerHTML)
+                    // console.log("index count-" + indexCount + "done")
                     indexCount++;
                 }
                 // console.log(iteration)            
@@ -177,8 +183,7 @@ function animate() {
         }
 
     }
-
-    // const convergeDelay= setTimeout(converge, 5000);
+   
 
 }
 
