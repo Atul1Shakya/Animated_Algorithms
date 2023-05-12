@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bubble_sort_container{
+  height: 400px;
+  background-color: aliceblue;
+}
+
+.animation_area{
+  display: flex;
+  border: 2px dotted Red;
+  height: 300px;
+  flex-direction: column;
+}
+
+#arrayboxes {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top:16%;
+  left: 1%;
+}
+
+#arrayboxes{
+  list-style: none;
+}
+
+.array-box {
+  border: 2px solid #bdbdbd;
+  padding: 1%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+#target {
+  display: none;
+  position: relative;
+  border: 2px solid #bdbdbd;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
+  left: 25%;
+  top: 30%;
+}
+
+#bubble_sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bubble-sort-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.bubble-sort-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bubble-sort-button.swap {
+  background-color: #f44336; /* Red */
+}
+
+.bubble-sort-button.done {
+  background-color: #008CBA; /* Blue */
+}
+
+.bubble-sort-button.active {
+  background-color: #ff9800; /* Orange */
+}
+
+.bubble-sort-button.previous {
+  background-color: #2196F3; /* Light Blue */
+}
+
+.bubble-sort-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
