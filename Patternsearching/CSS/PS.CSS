@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ 
+ .linear_search_container{
+    height: 400px;
+    background-color: aliceblue;
+ }
+ 
+ .animation_area{
+    display: flex;
+    border: 2px dotted Red;
+    height: 300px;
+    flex-direction: column;
+ }
+ 
+ #arrayboxes {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /* justify-content: center;
+     align-items: center; */
+ 
+     top:16%;
+     left: 1%;
+ }
+ 
+ #arrayboxes{
+    list-style: none;
+ }
+ 
+ 
+ 
+ .array-box {
+    border: 2px solid #bdbdbd;
+    padding: 1%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    
+ }
+ 
+ #target {
+    display: none;
+    position: relative;
+    border: 2px solid #bdbdbd;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+    left: 25%;
+    top: 30%;
+ }
