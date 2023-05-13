@@ -23,7 +23,7 @@ function input() {
                 // var box_li = document.createElement("li");
                 box.setAttribute('id', box_id);
                 box.setAttribute("class", "box");
-                var holder_id = "holder-" + i;
+                var holder_id = "holder-" + finalInput[i];
                 var holder = document.createElement("span");
                 holder.setAttribute('id', holder_id);
                 holder.setAttribute("class", "holder");
@@ -63,9 +63,24 @@ submitButton.addEventListener('click', () => {
     }
     input();
 })
-let finished=0;
+let finished = 0;
 //NOW IT'S TIME TO ANIMATE THIS
 function animate() {
+    //random color generator
+    const hexValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    function changeHex(value) {
+        let hex = '#';
+
+        for (let i = 0; i < 6; i++) {
+            const index = Math.floor(Math.random() * hexValues.length)
+            hex += hexValues[index];
+        }
+
+        value.style.borderColor = hex
+        value.style.color = hex
+
+    }
+
     // let batch = Flip.batch(".holder");
     // DIVERGING THE INPUT ARRAY 
     let removeChild = document.querySelectorAll(".child");
@@ -73,6 +88,7 @@ function animate() {
         childRemove.remove();
     });
     let iteration = 0;
+    let it=1
 
     function divide(div) {
         const children = div.querySelectorAll('.holder');
@@ -95,32 +111,46 @@ function animate() {
                 const child = children[i]
                 if (i < divisionIndex) {
                     leftDiv.appendChild(child.cloneNode(true));
-                    
+
                 }
                 else {
                     rightDiv.appendChild(child.cloneNode(true));
                 }
             }
-            let Div= `.child-iteration-${iteration}`;
-            let leftDivanimate= document.querySelector(Div)
             div.appendChild(leftDiv);
             div.appendChild(rightDiv);
-            tl.fromTo(Div, 1,{
-                y: -100,
-                opacity: 0,
-                transform: "scale(0,0)"
-            },
-            {
-                y: 0,
-                opacity: 1,
-                transform: "scale(1,1)"
-            })
+            div.style.borderColor="#000000"
+            let Div = `.child.child-iteration-${iteration}`
+            DivElement = document.querySelectorAll(`.child-iteration-${iteration}`)
+            // tl.fromTo(Div, 1, {
+            //     y: -100,
+            //     opacity: 0,
+            //     transform: "scale(0,0)",
+            // },
+            //     {
+            //         y: 0,
+            //         opacity: 1,
+            //         transform: "scale(1,1)",
+            //         onUpdate: () => {
+            //             let hex = '#';
+    
+            //             for (let i = 0; i < 6; i++) {
+            //                 const index = Math.floor(Math.random() * hexValues.length)
+            //                 hex += hexValues[index];
+            //             }
+    
+            //             DivElement.forEach((div)=>{
+            //                 div.style.color = hex
+            //             })
+            //         }
+            //     })
+
 
 
             divide(leftDiv)
             divide(rightDiv)
-            timeoutFlag=true;
-            
+            timeoutFlag = true;
+
         }
 
 
@@ -130,60 +160,105 @@ function animate() {
     divide(parent)
     // console.log(?"concerge")
     tl.eventCallback('onComplete', converge)
-
+    let k = iteration
+    // converge()
     function converge() {
-        for (let k = iteration; k >= 1; k--) {
-            let leftl = ".child-iteration-" + k + ".child-branch-left";
-            let iteration_number = ".child-iteration-" + k;
-            let leftleaf = document.querySelector(leftl);
-            let rightl = ".child-iteration-" + k + ".child-branch-right";
-            let rightleaf = document.querySelector(rightl);
-            let parentDiv = document.querySelector(iteration_number).parentElement;
-            let indexCount = 0;
-            while (leftleaf.children[0] != undefined && rightleaf.children[0] != undefined) {
-                if (parseInt(leftleaf.children[0].textContent) <= parseInt(rightleaf.children[0].textContent)) {
-                    // console.log(parentDiv.childNodes[indexCount])
-                    parentDiv.replaceChild(leftleaf.children[0], parentDiv.childNodes[indexCount]);
-                    if (leftleaf.children[0] == undefined) {
-                        parentDiv.removeChild(leftleaf);
-                    }
-                    // console.log(parentDiv.childNodes[indexCount])
-                    // console.log("index count-" + indexCount + "done")
-                    indexCount++;
-                }
-                else {
-                    // console.log(parentDiv.childNodes[indexCount].innerHTML)
-                    parentDiv.replaceChild(rightleaf.children[0], parentDiv.childNodes[indexCount]);
-                    if (rightleaf.children[0] == undefined) {
-                        parentDiv.removeChild(rightleaf);
-                    }
-                    // console.log(parentDiv.childNodes[indexCount].innerHTML)
-                    // console.log("index count-" + indexCount + "done")
-                    indexCount++;
-                }
-                // console.log(iteration)            
-            }
-            if (leftleaf.children[0] === undefined) {
-                while (rightleaf.children[0] != undefined) {
-                    parentDiv.replaceChild(rightleaf.children[0], parentDiv.childNodes[indexCount])
-                    indexCount++
-                }
-                parentDiv.removeChild(rightleaf);
-                console.log("Appendl" + parentDiv.innerHTML)
-            }
-            else if (rightleaf.children[0] === undefined) {
-                while (leftleaf.children[0] != undefined) {
-                    parentDiv.replaceChild(leftleaf.children[0], parentDiv.childNodes[indexCount])
-                    indexCount++
-                }
-                parentDiv.removeChild(leftleaf);
-                console.log("Appendr" + parentDiv.innerHTML)
-            }
-            console.log("iteration-" + k + "done")
-        }
+        changeOfIteration()
+        function changeOfIteration() {
 
+            let iteration_number = ".child-iteration-" + k;
+
+            if (k >= 1) {
+                let leftl = ".child-iteration-" + k + ".child-branch-left";
+                let leftleaf = document.querySelector(leftl);
+                let rightl = ".child-iteration-" + k + ".child-branch-right";
+                let rightleaf = document.querySelector(rightl);
+                let parentDiv = document.querySelector(iteration_number).parentElement;
+                let indexCount = 0;
+
+                let chitr= document.querySelector(`.child.child-iteration-${k}`)
+                let parentDivChilds= parentDiv.children
+                console.log(parentDivChilds)
+                tl.fromTo(chitr,2,{
+                    y: 0,
+                    opacity: 1,
+                    transform: "scale(1,1)",
+                },
+                {
+                    y: -100,
+                    opacity: 0,
+                    transform: "scale(0,0)",},"-=1"
+                )
+                .fromTo(parentDiv, 2,{
+                    transform: "scale(1.3,1.3)",
+                },
+                {
+                    transform: "scale(1,1)",
+                },"-=1")
+                .to(parentDivChilds, 2,{
+                    backgroundColor: "#00cc66"
+                },"-=1")
+
+
+                //replaceholder function
+                replaceHolders();
+                function replaceHolders() {
+                    if (leftleaf.children[0] != undefined && rightleaf.children[0] != undefined) {
+                        if (parseInt(leftleaf.children[0].textContent) <= parseInt(rightleaf.children[0].textContent)) {
+                            parentDiv.replaceChild(leftleaf.children[0], parentDiv.childNodes[indexCount]);
+                            if (leftleaf.children[0] == undefined) {
+                                parentDiv.removeChild(leftleaf);
+                            }
+                            indexCount++;
+                        }
+                        else {
+                            parentDiv.replaceChild(rightleaf.children[0], parentDiv.childNodes[indexCount]);
+                            if (rightleaf.children[0] == undefined) {
+                                parentDiv.removeChild(rightleaf);
+                            }
+                            indexCount++;
+                        }
+                        replaceHolders()
+                    }
+                    else return;
+                }
+
+                //checking for remaining elements to remove now
+                if (leftleaf.children[0] === undefined) {
+                    replaceRemainingRight();
+                    function replaceRemainingRight() {
+                        if (rightleaf.children[0] != undefined) {
+                            parentDiv.replaceChild(rightleaf.children[0], parentDiv.childNodes[indexCount])
+                            indexCount++;
+                            replaceRemainingRight()
+                        }
+                        else return;
+                    }
+                    parentDiv.removeChild(rightleaf);
+                }
+                else if (rightleaf.children[0] === undefined) {
+                    replaceRemainingLeft()
+                    function replaceRemainingLeft() {
+                        if (leftleaf.children[0] != undefined) {
+                            parentDiv.replaceChild(leftleaf.children[0], parentDiv.childNodes[indexCount])
+                            indexCount++
+                            replaceRemainingLeft()
+                        }
+                        else return;
+                    }
+                    parentDiv.removeChild(leftleaf);
+
+                }
+
+                k--
+                tl.eventCallback('onComplete', changeOfIteration)
+
+            }
+            else return;
+
+        }
     }
-   
+
 
 }
 
