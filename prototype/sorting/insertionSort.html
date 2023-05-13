@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <title>sorting</title>
+    <link rel="stylesheet" href="insertionSort.css">
+</head>
+<body>
+    <div class="sorting-area">
+        <div class="input-area">
+            <div class="input">
+                <form onsubmit="return false">
+                    <div class="input-div">Enter the array: <input id="array-input" type="text"></div>
+                    <div class="form-button-area submit-div"><input class="form-buttons" id="submit" type="submit"></div>
+                    <div class="form-button-area animate-div"><button class="form-buttons" id="animate">Sort</button></div>
+                </form>
+            </div>
+            <div class="carousel">
+                <svg id="slider-svg" width="700pt" height="700pt" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="m280 280 178.5-180.25c4.4375-4.4375 6.1719-10.91 4.5469-16.973s-6.3594-10.801-12.426-12.426c-6.0625-1.625-12.531 0.10938-16.973 4.5469l-192.15 192.85c-3.3125 3.2852-5.1758 7.7578-5.1758 12.426 0 4.6641 1.8633 9.1367 5.1758 12.426l192.5 192.5c4.4375 4.4375 10.91 6.1719 16.973 4.5469s10.801-6.3633 12.426-12.426-0.10938-12.535-4.5469-16.973z"
+                      fill="#010101" />
+                  </svg>
+            </div>
+        </div>
+        <div class="output-area">
+            <div class="input-text-show"></div>
+            <div class="animation-area"></div>
+            <div class="holding-area"></div>
+
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/Flip.min.js" integrity="sha512-Vi0uAaoQQrIY8GZpbmwDW+BpKS+Xhf3FCh0iLWNR6oHlFtZ2hBzWoMEr4NXLd7CBnPKSjfL7fJxzk3inVPasdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"
+  integrity="sha512-O+atZ/gABlcFlpIoLQR04f72qHqZWKwTVsQZHqk/8VE2nrzDlnqhXbnXP7Gh/TyhpPT8tEUm5A580GG8AloHTA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"
+  integrity="sha512-ExEP0u1SOp7gvzBoHWYmi6CEzdW2VHgfMeRZTetgX4HazJhC/UO1l83VGn4TLvgmIAxotN8uBcDE05a3sJglOA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="insertionSort.js"></script>
+</html>
