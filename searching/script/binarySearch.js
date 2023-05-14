@@ -14,8 +14,8 @@ function input_array() {
     alert("Provide a Valid Target to Search.")
     return
   }
-  // let number_array = document.getElementById("number_array").value;
-  let number_array = "1 2 3 5 8 4 6 7";
+  let number_array = document.getElementById("number_array").value;
+  // let number_array = "1 2 3 5 8 4 6 7";
   number_of_box = 0;
 
   document.querySelector(".found").style.display = "none";
