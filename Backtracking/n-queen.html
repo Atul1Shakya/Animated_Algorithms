@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-    <title>sorting</title>
-    <link rel="stylesheet" href="insertionSort.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style/n-queen.css">
+    <title>n-Queen</title>
 </head>
+
 <body>
+
     <div class="sorting-area">
         <div class="input-area">
             <div class="input">
                 <form onsubmit="return false">
-                    <div class="input-div">Enter the array: <input id="array-input" type="text"></div>
-                    <div class="form-button-area submit-div"><input class="form-buttons" id="submit" type="submit"></div>
-                    <div class="form-button-area animate-div"><button class="form-buttons" id="animate">Sort</button></div>
+                    <div class="input-div">Enter the value of n : <input id="n-input" type="number"></div>
+                    <div class="form-button-area submit-div"><button class="form-buttons" id="submit">Submit</button>></div>
+                    <div class="form-button-area animate-div"><button class="form-buttons" id="animate">Animate</button></div>
                 </form>
             </div>
             <div class="carousel">
@@ -28,12 +29,13 @@
                   </svg>
             </div>
         </div>
-        <div class="output-area">
-            <div class="input-text-show"></div>
-            <div class="animation-area"></div>
-            <div class="holding-area"></div>
+        <div class="animation-area">
+            <div class="grid">
+                
+            </div>
         </div>
     </div>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/Flip.min.js" integrity="sha512-Vi0uAaoQQrIY8GZpbmwDW+BpKS+Xhf3FCh0iLWNR6oHlFtZ2hBzWoMEr4NXLd7CBnPKSjfL7fJxzk3inVPasdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -43,5 +45,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"
   integrity="sha512-ExEP0u1SOp7gvzBoHWYmi6CEzdW2VHgfMeRZTetgX4HazJhC/UO1l83VGn4TLvgmIAxotN8uBcDE05a3sJglOA=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="insertionSort.js"></script>
+
+<script src="script/n-queen.js"></script>
 </html>

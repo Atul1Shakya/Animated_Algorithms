@@ -122,28 +122,28 @@ function animate() {
             div.style.borderColor="#000000"
             let Div = `.child.child-iteration-${iteration}`
             DivElement = document.querySelectorAll(`.child-iteration-${iteration}`)
-            // tl.fromTo(Div, 1, {
-            //     y: -100,
-            //     opacity: 0,
-            //     transform: "scale(0,0)",
-            // },
-            //     {
-            //         y: 0,
-            //         opacity: 1,
-            //         transform: "scale(1,1)",
-            //         onUpdate: () => {
-            //             let hex = '#';
+            tl.fromTo(Div, 1, {
+                y: -100,
+                opacity: 0,
+                transform: "scale(0,0)",
+            },
+                {
+                    y: 0,
+                    opacity: 1,
+                    transform: "scale(1,1)",
+                    onUpdate: () => {
+                        let hex = '#';
     
-            //             for (let i = 0; i < 6; i++) {
-            //                 const index = Math.floor(Math.random() * hexValues.length)
-            //                 hex += hexValues[index];
-            //             }
+                        for (let i = 0; i < 6; i++) {
+                            const index = Math.floor(Math.random() * hexValues.length)
+                            hex += hexValues[index];
+                        }
     
-            //             DivElement.forEach((div)=>{
-            //                 div.style.color = hex
-            //             })
-            //         }
-            //     })
+                        DivElement.forEach((div)=>{
+                            div.style.color = hex
+                        })
+                    }
+                })
 
 
 
