@@ -131,18 +131,6 @@ function animate() {
                     y: 0,
                     opacity: 1,
                     transform: "scale(1,1)",
-                    onUpdate: () => {
-                        let hex = '#';
-    
-                        for (let i = 0; i < 6; i++) {
-                            const index = Math.floor(Math.random() * hexValues.length)
-                            hex += hexValues[index];
-                        }
-    
-                        DivElement.forEach((div)=>{
-                            div.style.color = hex
-                        })
-                    }
                 })
 
 
@@ -179,7 +167,7 @@ function animate() {
                 let chitr= document.querySelector(`.child.child-iteration-${k}`)
                 let parentDivChilds= parentDiv.children
                 console.log(parentDivChilds)
-                tl.fromTo(chitr,2,{
+                tl.fromTo(chitr,1.1,{
                     y: 0,
                     opacity: 1,
                     transform: "scale(1,1)",
@@ -187,23 +175,22 @@ function animate() {
                 {
                     y: -100,
                     opacity: 0,
-                    transform: "scale(0,0)",},"-=1"
+                    transform: "scale(0,0)",}
                 )
-                .fromTo(parentDiv, 2,{
-                    transform: "scale(1.3,1.3)",
+                .fromTo(parentDiv, 1.1,{
+                    transform: "scale(0,0)",
                 },
                 {
                     transform: "scale(1,1)",
-                },"-=1")
-                .to(parentDivChilds, 2,{
-                    backgroundColor: "#00cc66"
                 },"-=1")
 
 
                 //replaceholder function
                 replaceHolders();
                 function replaceHolders() {
+
                     if (leftleaf.children[0] != undefined && rightleaf.children[0] != undefined) {
+                        const state = Flip.getState(parentDiv)
                         if (parseInt(leftleaf.children[0].textContent) <= parseInt(rightleaf.children[0].textContent)) {
                             parentDiv.replaceChild(leftleaf.children[0], parentDiv.childNodes[indexCount]);
                             if (leftleaf.children[0] == undefined) {
@@ -218,6 +205,11 @@ function animate() {
                             }
                             indexCount++;
                         }
+                        Flip.from(state,{
+                            duration: 2,
+                            nested: true,
+                        })
+
                         replaceHolders()
                     }
                     else return;
