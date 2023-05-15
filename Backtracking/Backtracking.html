@@ -21,24 +21,25 @@
     rel="stylesheet">
   <title>Template</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style/n-queen.css">
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(226, 76, 113)">
     <a class="navbar-brand" href="#">
-      <img src="resource/nav-logo.png" width="180" alt="" />
+      <img src="/resource/nav-logo.png" width="180" alt="" />
     </a>
     <button class="navbar-toggler me-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <h4 class="nav-item disabled">\N-Queens Problem</h4>
+    <h4 class="nav-item disabled">\Backtracking</h4>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="bubble_sort.html">Backtracking</a>
+          <a class="nav-link" href="bubble_sort.html">N-Queens Problem</a>
         </li>
-       
+
         <!--li class="nav-item">
                     <a class="nav-link disabled">Disabled</a>
                 </li -->
@@ -59,18 +60,26 @@
 
   <div class="content">
     <h1>Backtracking</h1>
-    <p>Backtracking is a problem-solving technique in computer science and mathematics where a solution is found through a trial-and-error approach. It is a type of brute-force search algorithm that explores all possible solutions by systematically trying out different options until the correct one is found. </p>
+    <p>Backtracking is a problem-solving technique in computer science and mathematics where a solution is found through
+      a trial-and-error approach. It is a type of brute-force search algorithm that explores all possible solutions by
+      systematically trying out different options until the correct one is found. </p>
 
-    <p>Backtracking involves building a solution incrementally, one step at a time, and then undoing any incorrect steps that lead to a dead-end. This means that backtracking algorithms are often used for solving problems with constraints, such as finding the best move in a game or finding the shortest path in a maze.</p>
+    <p>Backtracking involves building a solution incrementally, one step at a time, and then undoing any incorrect steps
+      that lead to a dead-end. This means that backtracking algorithms are often used for solving problems with
+      constraints, such as finding the best move in a game or finding the shortest path in a maze.</p>
 
 
     <h3>
       How Backtracking Works?
     </h3>
     <ol>
-     <li>In a backtracking algorithm, the search starts with an initial state and then explores all possible paths that lead to a solution. At each step, the algorithm makes a decision and then moves to the next state. If the algorithm reaches a dead-end, it backtracks to the previous state and tries another path.</li>
+      <li>In a backtracking algorithm, the search starts with an initial state and then explores all possible paths that
+        lead to a solution. At each step, the algorithm makes a decision and then moves to the next state. If the
+        algorithm reaches a dead-end, it backtracks to the previous state and tries another path.</li>
 
-     <li>The key to a successful backtracking algorithm is to identify the conditions that lead to a dead-end and to quickly prune those paths that are unlikely to lead to a solution. By doing so, the algorithm can focus its search on the most promising paths and quickly find a solution.</li>
+      <li>The key to a successful backtracking algorithm is to identify the conditions that lead to a dead-end and to
+        quickly prune those paths that are unlikely to lead to a solution. By doing so, the algorithm can focus its
+        search on the most promising paths and quickly find a solution.</li>
     </ol>
 
 
@@ -79,60 +88,109 @@
     </h3>
     <h5>Time Complexity:</h5>
     <ul>
-      <li><b>Best Case:</b> <i>Determining the "best" time complexity for a backtracking algorithm depends on the specific problem being solved and the constraints of the problem. In some cases, it may be possible to find an optimal solution with a relatively low time complexity, while in other cases the best possible solution may still have a high time complexity.</i></li>
-     <li><b>Worst Case:</b> <i>In general, the best approach to reduce the time complexity of a backtracking algorithm is to apply various pruning techniques to eliminate as many dead-end paths as possible. This can include heuristics to prioritize the most promising paths, early termination conditions to stop the algorithm as soon as a solution is found, and other optimizations such as memoization to avoid redundant computations.</li>
-      
+      <li><b>Best Case:</b> <i>Determining the "best" time complexity for a backtracking algorithm depends on the
+          specific problem being solved and the constraints of the problem. In some cases, it may be possible to find an
+          optimal solution with a relatively low time complexity, while in other cases the best possible solution may
+          still have a high time complexity.</i></li>
+      <li><b>Worst Case:</b> <i>In general, the best approach to reduce the time complexity of a backtracking algorithm
+          is to apply various pruning techniques to eliminate as many dead-end paths as possible. This can include
+          heuristics to prioritize the most promising paths, early termination conditions to stop the algorithm as soon
+          as a solution is found, and other optimizations such as memoization to avoid redundant computations.</li>
+
     </ul>
     <h5 class="spacecomplexity">Auxiliary Space:</h5>
-    <i>O(wh)</i> The space complexity of a backtracking algorithm depends on the maximum depth of the recursion tree and the amount of memory required to store intermediate results. In the animation code I provided, the space complexity of the backtracking algorithm is O(wh), where w is the width of the grid and h is the height of the grid. This is because the maximum depth of the recursion tree is wh, and at each level of the tree, the algorithm needs to store the current position and the path taken so far, which requires O(1) space.
+    <i>O(wh)</i> The space complexity of a backtracking algorithm depends on the maximum depth of the recursion tree and
+    the amount of memory required to store intermediate results. In the animation code I provided, the space complexity
+    of the backtracking algorithm is O(wh), where w is the width of the grid and h is the height of the grid. This is
+    because the maximum depth of the recursion tree is wh, and at each level of the tree, the algorithm needs to store
+    the current position and the path taken so far, which requires O(1) space.
 
 
     <h3>Pseudo Code</h3>
 
-   <ul>
-    <li>
-      backtrack(state):
-  <br>  if is_solution(state):
-    <br>    return state
-       <br>             else:
-     <br>   for each candidate in candidates(state):
-        <br>   if is_valid(candidate, state):
-           <br>     add candidate to state
-           <br>     result = backtrack(state)
-           <br>     if result is not None:
-           <br>         return result
-             <br>   remove candidate from state
+    <ul>
+      <li>
+        backtrack(state):
+        <br> if is_solution(state):
+        <br> return state
+        <br> else:
+        <br> for each candidate in candidates(state):
+        <br> if is_valid(candidate, state):
+        <br> add candidate to state
+        <br> result = backtrack(state)
+        <br> if result is not None:
+        <br> return result
+        <br> remove candidate from state
         return None
 
-    </li>
-   </ul>
+      </li>
+    </ul>
 
-   <h4>What is N-Queen problem ?</h4>
+    <h4>What is N-Queen problem ?</h4>
 
-   <p>The N-Queens problem is a classic problem in computer science and combinatorial optimization. The problem is to place N chess queens on an N x N chessboard so that no two queens threaten each other. This means that no two queens can be placed in the same row, column, or diagonal.</p>
+    <p>The N-Queens problem is a classic problem in computer science and combinatorial optimization. The problem is to
+      place N chess queens on an N x N chessboard so that no two queens threaten each other. This means that no two
+      queens can be placed in the same row, column, or diagonal.</p>
 
-   <p>The problem was first posed in the mid-1800s and has since been extensively studied and used as a benchmark for testing various search and optimization algorithms. The N-Queens problem has many interesting properties and variations, and it is often used as a teaching example to illustrate backtracking algorithms, constraint satisfaction, and other concepts in computer science and mathematics.
+    <p>The problem was first posed in the mid-1800s and has since been extensively studied and used as a benchmark for
+      testing various search and optimization algorithms. The N-Queens problem has many interesting properties and
+      variations, and it is often used as a teaching example to illustrate backtracking algorithms, constraint
+      satisfaction, and other concepts in computer science and mathematics.
 
-   </p>
+    </p>
 
-   <p>The N-Queens problem can be solved using a backtracking algorithm by generating all possible placements of queens on the board and checking whether each placement is valid. The backtracking algorithm explores the solution space recursively, eliminating invalid placements and continuing the search until a valid solution is found or all possible placements have been explored.</p>
-
-
-   <h3>Here's the animation to show backtracking via N-queen problem !</h3>
-
-   <video width="1000" height="900" autoplay>
-    <source src="backtracking video.mp4" type="video/mp4">
-    
-  Your browser does not support the video tag.
-  </video>
-
-
-        <!-- form for animations -->
+    <p>The N-Queens problem can be solved using a backtracking algorithm by generating all possible placements of queens
+      on the board and checking whether each placement is valid. The backtracking algorithm explores the solution space
+      recursively, eliminating invalid placements and continuing the search until a valid solution is found or all
+      possible placements have been explored.</p>
 
 
+    <h3>Here's the animation to show backtracking via N-queen problem !</h3>
+
+
+    <!-- form for animations -->
+
+    <div class="sorting-area">
+      <div class="input-area">
+        <div class="input">
+          <form onsubmit="return false">
+            <div class="input-div">Enter the value of n : <input id="n-input" type="number"></div>
+            <div class="form-button-area submit-div"><button class="form-buttons" id="submit">Submit</button>></div>
+            <div class="form-button-area animate-div"><button class="form-buttons" id="animate">Show</button></div>
+          </form>
+        </div>
+        <div class="carousel">
+          <svg id="slider-svg" width="700pt" height="700pt" version="1.1" viewBox="0 0 700 700"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m280 280 178.5-180.25c4.4375-4.4375 6.1719-10.91 4.5469-16.973s-6.3594-10.801-12.426-12.426c-6.0625-1.625-12.531 0.10938-16.973 4.5469l-192.15 192.85c-3.3125 3.2852-5.1758 7.7578-5.1758 12.426 0 4.6641 1.8633 9.1367 5.1758 12.426l192.5 192.5c4.4375 4.4375 10.91 6.1719 16.973 4.5469s10.801-6.3633 12.426-12.426-0.10938-12.535-4.5469-16.973z"
+              fill="#010101" />
+          </svg>
+        </div>
+      </div>
+      <div class="animation-area">
+        <div class="grid">
+
+        </div>
+      </div>
+    </div>
 
 
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+  integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/Flip.min.js"
+  integrity="sha512-Vi0uAaoQQrIY8GZpbmwDW+BpKS+Xhf3FCh0iLWNR6oHlFtZ2hBzWoMEr4NXLd7CBnPKSjfL7fJxzk3inVPasdg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"
+  integrity="sha512-O+atZ/gABlcFlpIoLQR04f72qHqZWKwTVsQZHqk/8VE2nrzDlnqhXbnXP7Gh/TyhpPT8tEUm5A580GG8AloHTA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"
+  integrity="sha512-ExEP0u1SOp7gvzBoHWYmi6CEzdW2VHgfMeRZTetgX4HazJhC/UO1l83VGn4TLvgmIAxotN8uBcDE05a3sJglOA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="script/n-queen.js"></script>
 
 </html>

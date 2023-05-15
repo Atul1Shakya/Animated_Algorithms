@@ -1,13 +1,8 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body{
     background: #fef6f6;
+
     font-family: 'Raleway', sans-serif;
 }
-
 .sorting-area{
     background-color: #fef6f6;
     /* border: 2px solid black; */
@@ -104,9 +99,7 @@ form div{
 .animation-area{
     display: flex;
     justify-content: center;
-    border: 2px solid green;
     height: 80%;
-    background-color: blueviolet;
 }
 
 .grid{

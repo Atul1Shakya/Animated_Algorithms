@@ -6,11 +6,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/n-queen.css">
     <title>n-Queen</title>
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffaaaa">
+        <a class="navbar-brand" href="#">
+          <img src="resource/nav-logo.png" width="230" alt="" />
+        </a>
+        <button class="navbar-toggler me-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <h4 class="nav-item disabled">\Searching</h4>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Linear</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="binarySearch.html">Binary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="fibonacci.html">Fibonacci</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="exponential.html">Exponential</a>
+            </li>
+    
+            <!--li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li -->
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search Algorithms..." aria-label="Search" />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              GO
+            </button>
+    
+            <!-- ANOTHER OPTION 
+                <button class="btn btn-outline-light btn-dark my-2 my-sm-0" type="submit">GO</button> -->
+          </form>
+        </div>
+      </nav>
+    
+      <!-- content -->
+    
+      <div class="content">
+        <h1>Linear Search</h1>
+        <p>Linear Search is defined as a sequential search algorithm that starts at one end and goes through each element of
+          a list until the desired element is found, otherwise the search continues till the end of the data set.</p>
+    
+    
+        <h3>
+          How Linear Search Works?
+        </h3>
+        <ol>
+          <li>First, read the search element (Target element) in the array.</li>
+          <li>Set an integer i = 0 and repeat steps 3 to 4 till i reaches the end of the array.</li>
+          <li>Match the key with arr[i].</li>
+          <li>If the key matches, return the index. Otherwise, increment i by 1.</li>
+        </ol>
+    
+    
+        <h3>
+          Complexity Analysis of Linear Search:
+        </h3>
+        <h5>Time Complexity:</h5>
+        <ul>
+          <li><b>Best Case:</b> <i>O(1)</i> In the best case, the key might be present at the first index.</li>
+          <li><b>Worst Case:</b> <i>O(N)</i> In the worst case, the key might be present at the last index i.e.,
+            opposite to the end from which the search has started in the list.</li>
+          <li><b>Average Case:</b> <i>O(N)</i></li>
+    
+        </ul>
+        <h5 class="spacecomplexity">Auxiliary Space:</h5>
+        <i>O(1)</i> as except the variable to iterate through the list, no other variable is used.
+    
+    
+        <h3>Pseudo Code</h3>
+        <ul class="pseudo-code-list">
+          <li>
+            function linear_search(array, target):
+            <ul class="pseudo-code-list">
+              <li>for i from 0 to length of array - 1 do:
+                <ul class="pseudo-code-list">
+                  <li>if array[i] equals target then:
+                    <ul class="pseudo-code-list">
+                      <li>return i</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>end for</li>
+              <li>return -1</li>
+            </ul>
+          </li>
+          <li>end function</li>
+        </ul>
+    
+        <br><br>
+
+
+
+
+
+
+
+
+
+
+
 
     <div class="sorting-area">
         <div class="input-area">
@@ -18,7 +134,7 @@
                 <form onsubmit="return false">
                     <div class="input-div">Enter the value of n : <input id="n-input" type="number"></div>
                     <div class="form-button-area submit-div"><button class="form-buttons" id="submit">Submit</button>></div>
-                    <div class="form-button-area animate-div"><button class="form-buttons" id="animate">Animate</button></div>
+                    <div class="form-button-area animate-div"><button class="form-buttons" id="animate">Show</button></div>
                 </form>
             </div>
             <div class="carousel">
