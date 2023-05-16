@@ -58,90 +58,106 @@ submitButton.addEventListener("click", () => {
     document.querySelector("#holder-0").firstChild.classList.add("sorted");
   }
 });
-var current_unchecked = 1;
-var timer;
-let count = 0;
-var time = true;
 
-const animate = document.getElementById("animate");
+//SORTING
+var time = true;
+var current_sorted = 0;
+
+const animate = document.querySelector("#animate");
 animate.addEventListener("click", async () => {
+  current_sorted = 0;
   if (!animation_active) {
     animation_active = true;
-    count = 0;
-    current_unchecked = 1;
+
     while (time) {
-      time = await insertion_sort();
-      console.log("count : " + count);
+      time = await selection_sort();
     }
     time = true;
+
     animation_active = false;
   }
 });
 
-async function insertion_sort() {
-  if (current_unchecked < finalInputLength) {
-    console.log("call" + count++ + "unchecked= " + current_unchecked);
-    let new_value_box, adj_left_element;
-    new_value_box = document.querySelector(
-      "#holder-" + current_unchecked
-    ).firstChild;
-    console.log(new_value_box);
-    const new_value_state = Flip.getState(new_value_box);
-    document.querySelector(".holding-area").appendChild(new_value_box);
+async function selection_sort() {
+  if (current_sorted < finalInputLength) {
+    var min = current_sorted;
     await new Promise((resolve) => {
-      Flip.from(new_value_state, {
-        duration: 1,
-        toggleClass: "hold",
-        absolute: true,
-        ease: Power2.easeInOut,
+      tl.to(document.querySelector(`#holder-${min}`).firstChild, 0.4, {
+        backgroundColor: "#ff2e2e",
         onComplete: resolve,
       });
     });
-    new_value_box.classList.toggle("hold");
-    let i;
-    for (i = current_unchecked - 1; i >= 0; i--) {
-      adj_left_element = document.querySelector("#holder-" + i).firstChild;
-      const left_state = Flip.getState(adj_left_element);
+
+    for (var i = current_sorted + 1; i < finalInputLength; i++) {
+      const min_element = document.querySelector(`#holder-${min}`).firstChild;
+      const current_element = document.querySelector(`#holder-${i}`).firstChild;
+      tl.to(current_element, 0.4, {
+        backgroundColor: "#80d9ff",
+        transform: "scale(1.1,1.1)",
+      });
       if (
-        parseInt(new_value_box.textContent) <
-        parseInt(adj_left_element.textContent)
+        parseInt(min_element.textContent) >
+        parseInt(current_element.textContent)
       ) {
-        document
-          .querySelector("#holder-" + (i + 1))
-          .appendChild(adj_left_element);
         await new Promise((resolve) => {
-          Flip.from(left_state, {
-            duration: 0.5,
-            toggleClass: "checking",
-            absolute: true,
-            ease: Power2.easeInOut,
+          tl.to(min_element, 0.4, {
+            backgroundColor: "#fef6f6",
+            transform: "scale(1,1)",
+          }).to(
+            current_element,
+            0.4,
+            {
+              backgroundColor: "#ff2e2e",
+              onComplete: resolve,
+              transform: "scale(1.1,1.1)",
+            },
+            "-=.4"
+          );
+        });
+
+        min = i;
+
+
+      } else {
+        await new Promise((resolve) => {
+          tl.to(current_element, 0.4, {
+            backgroundColor: "#fef6f6",
+            transform: "scale(1,1)",
             onComplete: resolve,
           });
         });
-      } else {
-        break;
       }
     }
-    var holded_value = document.querySelector(".holding-area").firstChild;
-    console.log("holded : " + holded_value);
-    const holded_state = Flip.getState(holded_value);
-    document.querySelector("#holder-" + (i + 1)).appendChild(holded_value);
+
+    const min_element = document.querySelector(`#holder-${min}`);
+    const current_element = document.querySelector(`#holder-${current_sorted}`);
+
+    const minState = Flip.getState(min_element.firstChild);
+    const current_elementState = Flip.getState(current_element.firstChild);
+
+    current_element.appendChild(min_element.firstChild);
+    min_element.appendChild(current_element.firstChild);
+
     await new Promise((resolve) => {
-      Flip.from(holded_state, {
+      Flip.from(minState, {
         duration: 1,
-        absolute: true,
-        zIndex: 1,
-        ease: Power2.easeInOut,
+        zIndex: 2,
+      });
+      Flip.from(current_elementState, {
+        duration: 1,
+        zIndex: 3,
         onComplete: resolve,
       });
     });
-    new_value_box.classList.toggle("hold");
-    holded_value.classList.add("sorted");
 
-    current_unchecked++;
+    tl.to(document.querySelector(`#holder-${current_sorted}`).firstChild, 0.4, {
+      backgroundColor: "#81ff4f",
+      transform: "scale(1,1)",
+    });
+
+    current_sorted++;
     return true;
   } else {
-    // clearInterval(timer);
     return false;
   }
 }
