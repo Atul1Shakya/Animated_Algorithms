@@ -26,9 +26,14 @@ function input_array() {
     list.removeChild(list.firstChild);
   }
   // var input_array = number_array.split(",");
-  var input_array = number_array.split(/[ ,]+/);
+  var stringvalue = number_array.split(/[ ,]+/)
+  var input_array = []
+  for(var i=0;i<stringvalue.length;i++)
+  {
+    input_array.push(parseInt(stringvalue[i]));
+  }
   const array_size = input_array.length;
-  input_array.sort();
+  input_array.sort(function(a, b){return a - b});
   if (array_size >= 3 && array_size <= 15) {
     function create_array() {
       var arrayboxes = document.getElementById("arrayboxes");
@@ -67,7 +72,7 @@ function input_array() {
       }
     }
     create_array();
-    final_array=input_array;
+    final_array = input_array;
 
   } else {
     alert(
@@ -76,8 +81,7 @@ function input_array() {
   }
 }
 
-function target_input() 
-{
+function target_input() {
   target_number = document.querySelector("#target_number").value;
   if (target_number === "") {
     // alert("Provide a Valid Target to Search.")
@@ -128,23 +132,25 @@ document.querySelector("#submit").addEventListener("click", () => {
 
 });
 
-function binary_search() { 
+function binary_search() {
   start = 0;
-  end = final_array.length-1;
+  end = final_array.length - 1;
+  search()
+  function search() {
+  if(start <= end){
 
-  while(start<=end)
-  {
     var x;
-    mid = Math.floor((start+end) / 2);  
-    const mid_box=document.querySelector("#box-"+mid)
-    const final_target=document.querySelector("#target")
-    if(final_array[mid]==target_number)
-    {
+    mid = Math.floor((start + end) / 2);
+    const mid_box = document.querySelector("#box-" + mid)
+    const final_target = document.querySelector("#target")
+
+    document.querySelector(".target_box").style.display = "flex";
+    if (final_array[mid] == target_number) {
       tl.to(mid_box, 0.5, {
         backgroundColor: "none",
         borderColor: "#3a91ba",
         transform: "scale(1.1, 1.1)"
-    
+
       }).to(
         final_target,
         0.5,
@@ -159,7 +165,7 @@ function binary_search() {
         backgroundColor: "#32cf4e",
         borderColor: "#32cf4e",
         transform: "scale(1.1, 1.1)"
-    
+
       }).to(final_target,
         1,
         {
@@ -169,111 +175,112 @@ function binary_search() {
         },
         "-=1"
       );
-      break;
+      return;
     }
     else
-    if(final_array[mid]>target_number)
-    {
-      tl.to(mid_box, 0.5, {
-        backgroundColor: "none",
-        borderColor: "#3a91ba",
-        transform: "scale(1.1, 1.1)"
-    
-      }).to(
-        final_target,
-        0.5,
-        {
+      if (final_array[mid] > target_number) {
+        tl.to(mid_box, 0.5, {
           backgroundColor: "none",
           borderColor: "#3a91ba",
           transform: "scale(1.1, 1.1)"
-        },
-        "-=0.5"
-      );
-      tl.to(mid_box, 1, {
-        backgroundColor: "#FF0000",
-        borderColor: "#FF0000",
-        transform: "scale(1.1, 1.1)"
-        
-      }).to(final_target,
-        1,
-        {
+
+        }).to(
+          final_target,
+          0.5,
+          {
+            backgroundColor: "none",
+            borderColor: "#3a91ba",
+            transform: "scale(1.1, 1.1)"
+          },
+          "-=0.5"
+        );
+        tl.to(mid_box, 1, {
           backgroundColor: "#FF0000",
           borderColor: "#FF0000",
           transform: "scale(1.1, 1.1)"
-        },
-        "-=1"
+
+        }).to(final_target,
+          1,
+          {
+            backgroundColor: "#FF0000",
+            borderColor: "#FF0000",
+            transform: "scale(1.1, 1.1)"
+          },
+          "-=1"
         );
-        tl.to(final_target,1,{
+        tl.to(final_target, 1, {
           backgroundColor: "none",
           borderColor: "#888888",
           transform: "none"
         })
-        for(x=mid+1;x<=end;++x)
-      {
-        const temp_box=document.querySelector("#box-"+x);
-        tl.to(temp_box, 0.3, {
-          backgroundColor: "#FF0000",
-          borderColor: "#000000"
-        });
+        for (x = mid + 1; x <= end; ++x) {
+          const temp_box = document.querySelector("#box-" + x);
+          tl.to(temp_box, 0.3, {
+            backgroundColor: "#FF0000",
+            opacity: 0.3,
+            transform: "scale(0.8, 0.8)"
+          });
+        }
+        end = mid - 1;
       }
-        end=mid-1;
-    }
-    else
-    {
-      tl.to(mid_box, 0.5, {
-        backgroundColor: "none",
-        borderColor: "#3a91ba",
-        transform: "scale(1.1, 1.1)"
-    
-      }).to(
-        final_target,
-        0.5,
-        {
+      else {
+        tl.to(mid_box, 0.5, {
           backgroundColor: "none",
           borderColor: "#3a91ba",
           transform: "scale(1.1, 1.1)"
-        },
-        "-=0.5"
-      );
-      tl.to(mid_box, 1, {
-        backgroundColor: "#FF0000",
-        borderColor: "#FF0000",
-        transform: "scale(1.1, 1.1)"
-    
-      }).to(final_target,
-        1,
-        {
+
+        }).to(
+          final_target,
+          0.5,
+          {
+            backgroundColor: "none",
+            borderColor: "#3a91ba",
+            transform: "scale(1.1, 1.1)"
+          },
+          "-=0.5"
+        );
+        tl.to(mid_box, 1, {
           backgroundColor: "#FF0000",
           borderColor: "#FF0000",
           transform: "scale(1.1, 1.1)"
-        },
-        "-=1"
-      );
-      tl.to(final_target,1,{
-        backgroundColor: "none",
-        borderColor: "#888888",
-        transform: "none"
-      })
-      for(x=start;x<mid;++x)
-      {
-        const temp_box=document.querySelector("#box-"+x);
-        tl.to(temp_box, 0.3, {
-          backgroundColor: "#FF0000",
-          borderColor: "#000000"
-        });
+
+        }).to(final_target,
+          1,
+          {
+            backgroundColor: "#FF0000",
+            borderColor: "#FF0000",
+            transform: "scale(1.1, 1.1)"
+          },
+          "-=1"
+        );
+        tl.to(final_target, 1, {
+          backgroundColor: "none",
+          borderColor: "#888888",
+          transform: "none"
+        })
+        for (x = start; x < mid; ++x) {
+          const temp_box = document.querySelector("#box-" + x);
+          tl.to(temp_box, 0.1, {
+            backgroundColor: "#FF0000",
+            opacity: 0.3,
+            transform: "scale(0.8, 0.8)"
+            // borderColor: "#000000"
+          });
+        }
+        start = mid + 1;
       }
-      start=mid+1;
-    }
   }
+  setTimeout(search, 3000)
+}
 }
 document.querySelector("#animate").addEventListener("click", () => {
-  for(let count=0;count<number_of_box;count++){
-    let array_li= document.querySelector("#box-"+count);
-    array_li.style.backgroundColor="";
-    array_li.style.borderColor="#bdbdbd";
-    array_li.style.transform="scale(1,1)";
-          
-    console.log(document.querySelector("#box-"+count).value)
+  for (let count = 0; count < number_of_box; count++) {
+    let array_li = document.querySelector("#box-" + count);
+    array_li.style.backgroundColor = "";
+    array_li.style.borderColor = "#bdbdbd";
+    array_li.style.transform = "scale(1,1)";
+
+    console.log(document.querySelector("#box-" + count).value)
   }
   binary_search();
 });

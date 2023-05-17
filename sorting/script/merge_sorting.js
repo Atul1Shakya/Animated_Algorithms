@@ -254,6 +254,31 @@ function animate() {
 
 }
 
+//carousel animation
+
+let toggle = true;
+
+document.querySelector(".carousel").addEventListener("click", () => {
+  tl.to(".input", 0.2, {
+    opacity: toggle ? 0 : 1,
+  }).to(
+    ".input",
+    0.2,
+    {
+      width: toggle ? 0 : "45%",
+    },
+    "-=0.1"
+  );
+
+  if (!toggle) {
+    toggle = true;
+    document.querySelector("#slider-svg").style.transform = "rotate(0deg)";
+  } else {
+    toggle = false;
+    document.querySelector("#slider-svg").style.transform = "rotate(180deg)";
+  }
+});
+
 const animateButton = document.getElementById("animate");//animate button id
 animateButton.addEventListener('click', () => {
     if (tl.isActive()) {

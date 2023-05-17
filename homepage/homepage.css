@@ -4,6 +4,7 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Mukta', sans-serif;
+    scroll-behavior: smooth;
 }
 nav{
     background: none;
@@ -74,10 +75,10 @@ nav{
     
  */
  background: url(/resources/bg_img.jpg);
- background-size: 100vh 100vh;
+ background-size: 100% 100%;
 }
 .search_area{
-    height: 400px;
+    /* height: 400px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
