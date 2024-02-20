@@ -9,7 +9,7 @@
  
  .animation_area{
     display: flex;
-    border: 2px dotted Red;
+    /* border: 2px dotted Red; */
     min-height: 40vh;
     flex-direction: column;
  

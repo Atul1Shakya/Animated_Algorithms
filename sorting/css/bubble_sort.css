@@ -9,8 +9,8 @@ body{
 
 .sorting-area{
   background-color: #fef6f6;
-  border: 2px solid black;
-  height: 100vh;
+  /* border: 2px solid black; */
+  height:100vh;
 }
 .input-area{
   /* border: 2px solid red; */
@@ -20,7 +20,7 @@ body{
   /* background-color: red; */
 }
 .input{
-  border: 2px solid orchid;
+  border: 2px solid #ff4545;
   width: 45%;
   background-color: orange;
 }
