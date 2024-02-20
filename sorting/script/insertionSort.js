@@ -17,8 +17,8 @@ function input() {
   //   let inputArray = "6 5 3 9 1 7  ";
   finalInput = inputArray
     .split(/[ ,]+/) // split the string by spaces
-    .filter((value) => Number.isInteger(parseFloat(value))) // filter only integer values
-    .map((value) => parseInt(value));
+    .filter((value) => parseFloat(value)); // filter only numeric values
+    
   finalInputLength = finalInput.length;
 
   if (finalInputLength >= 3 && finalInputLength <= 15) {

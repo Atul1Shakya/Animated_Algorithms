@@ -194,24 +194,24 @@ function search() {
     },
     "-=0.5"
   );
-  if (box.textContent == target.textContent) {
+  if (parseFloat(box.textContent) == parseFloat(target.textContent)) {
     tl.to(box, 0.5, {
       
       backgroundColor: "#32cf4e",
-      borderColor: "#32cf4e",
+      borderColor: "#259939",
     }).to(
       target,
       0.5,
       {
         
       backgroundColor: "#32cf4e",
-        borderColor: "#32cf4e",
+        borderColor: "#259939",
       },
       "-=0.5"
     );
     const found = document.querySelector(".found > h3");
     // needed to be removed
-    console.log(found);
+    // console.log(found);
     found.innerHTML = "Target Found at Index " + box_count;
     document.querySelector(".found").style.display = "flex";
 
@@ -220,7 +220,7 @@ function search() {
   } else {
     tl.to(box, 0.5, {
       backgroundColor: "#ff4545",
-      borderColor: "#eb012a",
+      borderColor: "#b30c2a",
 
     })
       .to(
@@ -228,12 +228,12 @@ function search() {
         0.5,
         {
           backgroundColor: "#ff4545",
-          borderColor: "#eb012a",
+          borderColor: "#b30c2a",
         },
         "-=0.5"
       )
       .to(box, 0.5, {
-        borderColor: "#ff4545",
+        borderColor: "#b30c2a",
         transform: "scale(1, 1)"
       })
       .to(

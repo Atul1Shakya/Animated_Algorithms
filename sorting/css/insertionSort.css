@@ -116,7 +116,7 @@ form div{
     display: flex;
     position: absolute;
     color:#fef6f6;
-    background-color: rgb(5, 172, 244);
+    background-color: rgb(172, 172, 172);
     font-size: 1.3rem;
     margin:5px;
     width: 40px;
@@ -161,13 +161,13 @@ form div{
 }
 
 .sorted{
-    background-color: rgb(235, 160, 20);
+    background-color: #1ed333;
 }
 
 .hold{
-    background-color: #ff4545;
+    background-color: #d5c869;
 }
 
 .checking{
-    background-color: #059862;
+    background-color: #cb4a33;
 }
