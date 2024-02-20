@@ -25,6 +25,11 @@ function input() {
         document.querySelector(".input-text-show").innerHTML =
             "Original Input -> " + finalInput;
         create_array();
+        const holderAnimate = document.querySelectorAll(".holder")
+        holderAnimate.forEach(hl => {
+            tl.fromTo(hl, 0.1, { opacity: '0%' }, { opacity: '100%', ease: "Power2.easeInOut" })
+                .fromTo(hl, 0.1, { y: '-50%' }, { y: '0%', ease: "Power2.easeInOut" })
+        });
     } else {
         alert(
             "Please provide a valid input: \n \tArray should be separated by space  \n \tArray size must be between 3 and 15 \n \tArray should only contain Integer"

@@ -40,7 +40,7 @@ function input() {
         create_array()
         const holderAnimate = document.querySelectorAll(".holder")
         holderAnimate.forEach(hl => {
-            tl.fromTo(hl, 0.1, { opacity: '0%' }, { opacity: '100%', ease: "Power2.easeInOut" })
+            tl.fromTo(hl, 0.1, { opacity: 0 }, { opacity: 1, ease: "Power2.easeInOut" })
                 .fromTo(hl, 0.1, { y: '-50%' }, { y: '0%', ease: "Power2.easeInOut" })
         });
 
@@ -165,8 +165,11 @@ function animate() {
                 let indexCount = 0;
 
                 let chitr= document.querySelector(`.child.child-iteration-${k}`)
-                let parentDivChilds= parentDiv.children
-                console.log(parentDivChilds)
+                let parentDivChilds= parentDiv.childNodes
+                document.querySelectorAll(".holder").forEach(element => {
+                    element.style.backgroundColor= "#17C5FF"
+                });
+                // console.log(parentDivChilds)
                 tl.fromTo(chitr,1.1,{
                     y: 0,
                     opacity: 1,
@@ -182,6 +185,17 @@ function animate() {
                 },
                 {
                     transform: "scale(1,1)",
+                    onComplete: ()=>{
+                        parentDivChilds.forEach(ch=>{
+                            ch.style.backgroundColor="rgb(23, 197, 255)"
+                        })
+                        parentDivChilds.forEach(ch => {
+                            tl.to(ch, .1,{
+                                backgroundColor: "#06CC45",
+                            })
+                        });
+                    }
+                    
                 },"-=1")
 
 
@@ -253,6 +267,31 @@ function animate() {
 
 
 }
+
+//carousel animation
+
+let toggle = true;
+
+document.querySelector(".carousel").addEventListener("click", () => {
+  tl.to(".input", 0.2, {
+    opacity: toggle ? 0 : 1,
+  }).to(
+    ".input",
+    0.2,
+    {
+      width: toggle ? 0 : "45%",
+    },
+    "-=0.1"
+  );
+
+  if (!toggle) {
+    toggle = true;
+    document.querySelector("#slider-svg").style.transform = "rotate(0deg)";
+  } else {
+    toggle = false;
+    document.querySelector("#slider-svg").style.transform = "rotate(180deg)";
+  }
+});
 
 const animateButton = document.getElementById("animate");//animate button id
 animateButton.addEventListener('click', () => {
