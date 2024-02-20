@@ -163,15 +163,15 @@ function binary_search() {
       );
       tl.to(mid_box, 1, {
         backgroundColor: "#32cf4e",
-        borderColor: "#32cf4e",
-        transform: "scale(1.1, 1.1)"
+        borderColor: "#259939",
+        transform: "scale(1, 1)"
 
       }).to(final_target,
         1,
         {
           backgroundColor: "#32cf4e",
-          borderColor: "#32cf4e",
-          transform: "scale(1.1, 1.1)"
+          borderColor: "#259939",
+          transform: "scale(1, 1)"
         },
         "-=1"
       );
@@ -195,16 +195,16 @@ function binary_search() {
           "-=0.5"
         );
         tl.to(mid_box, 1, {
-          backgroundColor: "#FF0000",
-          borderColor: "#FF0000",
-          transform: "scale(1.1, 1.1)"
+          backgroundColor: "#f29d2e",
+          borderColor: "#c47002",
+          transform: "scale(1, 1)"
 
         }).to(final_target,
           1,
           {
-            backgroundColor: "#FF0000",
-            borderColor: "#FF0000",
-            transform: "scale(1.1, 1.1)"
+            backgroundColor: "#f29d2e",
+            borderColor: "#c47002",
+            transform: "scale(1, 1)"
           },
           "-=1"
         );
@@ -217,8 +217,7 @@ function binary_search() {
           const temp_box = document.querySelector("#box-" + x);
           tl.to(temp_box, 0.3, {
             backgroundColor: "#FF0000",
-            opacity: 0.3,
-            transform: "scale(0.8, 0.8)"
+            transform: "scale(0.9, 0.9)"
           });
         }
         end = mid - 1;
@@ -240,16 +239,16 @@ function binary_search() {
           "-=0.5"
         );
         tl.to(mid_box, 1, {
-          backgroundColor: "#FF0000",
-          borderColor: "#FF0000",
-          transform: "scale(1.1, 1.1)"
+          backgroundColor: "#f29d2e",
+          borderColor: "#c47002",
+          transform: "scale(1, 1)"
 
         }).to(final_target,
           1,
           {
-            backgroundColor: "#FF0000",
-            borderColor: "#FF0000",
-            transform: "scale(1.1, 1.1)"
+            backgroundColor: "#f29d2e",
+            borderColor: "#c47002",
+            transform: "scale(1, 1)"
           },
           "-=1"
         );
@@ -262,8 +261,7 @@ function binary_search() {
           const temp_box = document.querySelector("#box-" + x);
           tl.to(temp_box, 0.1, {
             backgroundColor: "#FF0000",
-            opacity: 0.3,
-            transform: "scale(0.8, 0.8)"
+            transform: "scale(0.9, 0.9)"
             // borderColor: "#000000"
           });
         }
