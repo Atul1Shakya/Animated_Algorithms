@@ -231,7 +231,12 @@
     color: #ff4545;
  }
  
- .found , .not-found{
+.found{
+   width: 100vw;
+   justify-content: center;
+}
+
+ .not-found{
     display: none;
     position: relative;
     flex-direction:column;

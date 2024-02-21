@@ -178,7 +178,7 @@ function search() {
     document.querySelector(".not-found").style.display = "flex";
     return;
   }
-  console.log("reached"+ box_count)
+  // console.log("reached"+ box_count)
   tl.to(box, 0.5, {
     backgroundColor: "none",
     borderColor: "#3a91ba",
@@ -214,6 +214,7 @@ function search() {
     // console.log(found);
     found.innerHTML = "Target Found at Index " + box_count;
     document.querySelector(".found").style.display = "flex";
+    found.style.margin = "0 auto";
 
     complete();
     return;

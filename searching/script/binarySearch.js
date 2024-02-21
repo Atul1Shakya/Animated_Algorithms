@@ -175,6 +175,13 @@ function binary_search() {
         },
         "-=1"
       );
+
+      const found = document.querySelector(".found > h3");
+    // needed to be removed
+    // console.log(found);
+    found.textContent = "Target Found at Index " + mid;
+    document.querySelector(".found").style.display = "flex";
+      
       return;
     }
     else
@@ -266,6 +273,10 @@ function binary_search() {
           });
         }
         start = mid + 1;
+      }
+      if(start > end)
+      {
+        document.querySelector(".not-found").style.display = "flex";
       }
   }
   setTimeout(search, 3000)
