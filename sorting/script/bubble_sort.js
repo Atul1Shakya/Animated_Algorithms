@@ -103,7 +103,7 @@ async function selection_sort() {
                 );
             });
 
-            console.log(i)
+            // console.log(i)
             if (
                 parseInt(next_element.textContent) <
                 parseInt(current_element.textContent)

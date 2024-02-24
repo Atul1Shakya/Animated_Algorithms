@@ -71,7 +71,7 @@ animate.addEventListener("click", async () => {
     current_unchecked = 1;
     while (time) {
       time = await insertion_sort();
-      console.log("count : " + count);
+      // console.log("count : " + count);
     }
     time = true;
     animation_active = false;
@@ -80,12 +80,12 @@ animate.addEventListener("click", async () => {
 
 async function insertion_sort() {
   if (current_unchecked < finalInputLength) {
-    console.log("call" + count++ + "unchecked= " + current_unchecked);
+    // console.log("call" + count++ + "unchecked= " + current_unchecked);
     let new_value_box, adj_left_element;
     new_value_box = document.querySelector(
       "#holder-" + current_unchecked
     ).firstChild;
-    console.log(new_value_box);
+    // console.log(new_value_box);
     const new_value_state = Flip.getState(new_value_box);
     document.querySelector(".holding-area").appendChild(new_value_box);
     await new Promise((resolve) => {
@@ -123,7 +123,7 @@ async function insertion_sort() {
       }
     }
     var holded_value = document.querySelector(".holding-area").firstChild;
-    console.log("holded : " + holded_value);
+    // console.log("holded : " + holded_value);
     const holded_state = Flip.getState(holded_value);
     document.querySelector("#holder-" + (i + 1)).appendChild(holded_value);
     await new Promise((resolve) => {

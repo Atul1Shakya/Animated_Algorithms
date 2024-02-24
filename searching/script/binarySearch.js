@@ -289,7 +289,7 @@ document.querySelector("#animate").addEventListener("click", () => {
     array_li.style.borderColor = "#bdbdbd";
     array_li.style.transform = "scale(1,1)";
 
-    console.log(document.querySelector("#box-" + count).value)
+    // console.log(document.querySelector("#box-" + count).value)
   }
   binary_search();
 });

@@ -155,7 +155,7 @@ document.querySelector("#animate").addEventListener("click", () => {
       array_li.style.borderColor="#bdbdbd";
       array_li.style.transform="scale(1,1)";
             
-      console.log(document.querySelector("#box-"+count).value)
+      // console.log(document.querySelector("#box-"+count).value)
     }
     search();
   }
@@ -253,7 +253,7 @@ function search() {
 
 function complete() {
   clearInterval(timer);
-  console.log("complete");
+  // console.log("complete");
   timer = null;
   return;
 }

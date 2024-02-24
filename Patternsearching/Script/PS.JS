@@ -67,7 +67,7 @@ let box_count = 0;
 
 function search() {
   const box = document.querySelector("#box-" + box_count);
-  console.log(box_count);
+  // console.log(box_count);
 
   tl.to(box, 1, {
     backgroundColor: "#888888",
@@ -108,7 +108,7 @@ function search() {
 
 function complete() {
   clearInterval(timer);
-  console.log("complete");
+  // console.log("complete");
   timer = null;
 }
 
