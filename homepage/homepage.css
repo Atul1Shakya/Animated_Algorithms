@@ -87,7 +87,7 @@ nav{
 }
 
 .main_logo{
-    margin-top: 180px;
+    margin-top: 6em;
     height: 232px;
 
     /* filter: invert(25%) sepia(75%) saturate(1302%) hue-rotate(184deg) brightness(94%) contrast(92%); */
@@ -130,6 +130,24 @@ nav{
     border-top-right-radius: 14px;
     border-bottom-right-radius: 14px;
     /* background-color: rgb(237, 241, 241); */
+}
+
+.cards_area{
+    padding-top: 1.3em;
+    background-color: white;
+}
+.cards_area h2{
+    text-align: center;
+    margin: 1.5em 0 0 0;
+    font-size: 3em;
+    color: #FF4545;
+}
+
+.structure_logo {
+    height: 211px;
+    position: absolute;
+    bottom: 8%;
+    left: 9%;
 }
 
 /* algorithm list */
@@ -182,7 +200,7 @@ nav{
     /* padding-left: 18%;
     padding-top: 15%; */
 }
-.algos_list img{
+.algo_logo{
     height: 145px;
     position: absolute;
     bottom: 15%;
@@ -212,6 +230,4 @@ nav{
     left: 6em;
     width: 183vh;
 }
-
-
 

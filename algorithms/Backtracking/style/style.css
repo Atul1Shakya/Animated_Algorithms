@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #fef6f6;
+    margin: 0;
+
+}
+.navbar{
+    padding: 0.1rem 1rem;
+}
+.navbar-brand{
+    margin-right: 5px;
+}
+
+/* optional */
+.nav-link{
+    font-weight: 500;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.1rem;
+}
+
+.content{
+    font-family: "Lato",sans-serif;
+    font-weight: 400;
+    margin: .5% 3%;
+}
+.content ol{
+    /* border: 2px solid black; */
+    margin-left: 2%;
+}
+.spacecomplexity{
+    display:inline-block;
+}
+.pseudo-code-list{
+    list-style: none;
+}
