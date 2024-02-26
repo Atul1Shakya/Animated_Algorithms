@@ -8,7 +8,7 @@ body{
 }
 
 .sorting-area{
-    background-color: #fef6f6;
+    background-color: #e9f7ed;
     /* border: 2px solid black; */
     height: 70vh;
 }
@@ -74,7 +74,7 @@ form div{
 .form-buttons{
     height: 65%;
     width: 70%;
-    border: 2px solid #ff4545;
+    border: 2px solid #1d6d6c;
     font-size: 1.1rem;
     color: white;
     border-radius: 6px;
@@ -82,8 +82,8 @@ form div{
     transition: all .2s;
 }
 .form-buttons:hover{
-    color: #ff4545;
-    background-color: #fef6f6;
+    color: #1d6d6c;
+    background-color: #e9f7ed;
 }
 
 

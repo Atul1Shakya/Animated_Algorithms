@@ -1,8 +1,7 @@
 body{
-    background-color: #fef6f6;
+    background-color:white;
     margin: 0;
-    padding: 0;
-    
+    padding: 2;
     font-family: "Lato",sans-serif;
 }
 .navbar{
@@ -22,8 +21,11 @@ body{
 
 .content{
     font-family: "Lato",sans-serif;
+    height: fit-content;
+    background-color: #e9f7ed;
     font-weight: 400;
-    margin: .5% 3%;
+    padding: 1% 2%;
+    margin: 0% 10%;
 }
 .spacecomplexity{
     display:inline-block;
@@ -32,3 +34,13 @@ body{
     list-style: none;
 }
 
+.nav-searching{
+    color: black;
+    opacity: 55%;
+
+}
+.nav-searching:hover{
+    color: black;
+    opacity: 100%;
+    text-decoration: none;
+}

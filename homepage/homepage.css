@@ -134,13 +134,13 @@ nav{
 
 .cards_area{
     padding-top: 1.3em;
-    background-color: white;
+    background-color: #F7F3E9;
 }
 .cards_area h2{
     text-align: center;
     margin: 1.5em 0 0 0;
     font-size: 3em;
-    color: #FF4545;
+    color: #1d6d6c;
 }
 
 .structure_logo {
@@ -152,7 +152,7 @@ nav{
 
 /* algorithm list */
 .algos_list{
-    background-color: white;
+    background-color: #F7F3E9;
     padding: 45px;
     display: grid;
     grid-template-columns: 250px 250px 250px 250px;
@@ -179,7 +179,7 @@ nav{
 .algos_list div li{
     list-style: none;
     font-size: 25px;
-    border: 4px solid #FF4545;
+    border: 4px solid #1d6d6c;
     display: inline-block;
     width: 15rem;
 }
@@ -187,14 +187,14 @@ nav{
     text-align: center;
     font-family: 'Mukta', sans-serif;
     color: white;
-    background-color: #FF4545;
+    background-color: #1d6d6c;
     border-bottom-left-radius: 9px;
     border-bottom-right-radius: 9px;
 }
 .algo_image{
     height: 145px;
     overflow: hidden;
-    background-color: #ffdbdb;
+    background-color: #e9f7ed;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     /* padding-left: 18%;
@@ -209,7 +209,7 @@ nav{
 
 /* about section */
 .about{
-    background-color: #ffd0d0;
+    background-color: #e9f7ed;
     margin-top: 30px;
     /* text-align: center; */
 }
