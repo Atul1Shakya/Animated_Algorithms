@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
     <link rel="stylesheet" href="./Arrays.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js" integrity="sha512-omCJ8S/xl+DUjxNTqvhVSptHwIEi0IDp52n63HEj8ThJgSK/8Lcpi9btnTdE8db+Y4cDKZrZ7NQZBX4PKN4i4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"
+        integrity="sha512-omCJ8S/xl+DUjxNTqvhVSptHwIEi0IDp52n63HEj8ThJgSK/8Lcpi9btnTdE8db+Y4cDKZrZ7NQZBX4PKN4i4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffaaaa">
         <a class="navbar-brand" href="/index.html">
@@ -34,14 +40,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">Linked List</a>
-                  </li>
+                </li>
             </ul>
             <form style="background-color: white" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search Algorithms..."
                     aria-label="Search" />
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        GO
-                    </button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    GO
+                </button>
 
                 <!-- ANOTHER OPTION 
             <button class="btn btn-outline-light btn-dark my-2 my-sm-0" type="submit">GO</button> -->
@@ -49,18 +55,92 @@
         </div>
     </nav>
     <h1>Arrays</h1>
-    <div class="operations">
+    <div class="operations-theory">
         <h2>Operations performed on an array</h2>
         <div class="traverse">
             <h3>traversal in an array</h3>
-            <p>Traversal refers to the process of visiting each element in a data structure in a systematic way. When we talk about traversal in the context of an array, it means accessing each element of the array, typically in a sequential order.</p>
+            <p>Traversal refers to the process of visiting each element in a data structure in a systematic way. When we
+                talk about traversal in the context of an array, it means accessing each element of the array, typically
+                in a sequential order.</p>
         </div>
         <div class="insert"></div>
         <div class="eliminate"></div>
     </div>
     <div class="animation-area">
-        
+        <div class="input">
+            <form id="input-form" action="#">
+                <label for="array-size">Enter size of array: <input id="array-size" type="number"></label>
+                <fieldset id="datatype-selector">
+                    <label for="char"><input name="data-type" id="char" value="0" type="radio">charachter</label>
+                    <label for="str"><input name="data-type" id="str" value="1" type="radio">String</label>
+                    <label for="int"><input name="data-type" id="int" type="radio" value="2">Integer</label>
+                    <label for="float"><input name="data-type" value="3" id="float" type="radio">Float</label>
+                </fieldset>
+                <label for="array-string">Enter elements in array (separated by space):<input id="array-string"
+                        type="text"></label>
+                <button id="submit-input">submit</button>
+            </form>
+        </div>
+        <div class="animation">
+
+        </div>
+        <div class="operations">
+            <div class="insert">
+                <h3>Insert Operation</h3>
+                <fieldset class="insert-group">
+                    <labe class="insert-label" for="insert-start">
+                        <input id="insert-start" type="radio" value="0" name="insert-position"> Insert value
+                        at start position
+                    </label>
+                    <label class="insert-label" for="insert-end">
+                        <input id="insert-end" type="radio" value="1" name="insert-position"> Insert value at
+                        end position
+                    </label>
+                    <labe class="insert-label"l for="insert-at-index">
+                        <input id="insert-at-index" type="radio" value="2" name="insert-position"> Insert
+                        value at given index number
+                    </label>
+                </fieldset>
+                <label for="insert-input" class="insert-input-label">
+                    <input id="insert-input" type="text">
+                    <input id="insert-index" type="number">
+                </label>
+                <button id="insert">Insert</button>
+            </div>
+            <div class="traverse">
+                <h3>Traverse Operations</h3>
+                <button class="traverse">Traverse</button>
+                <ul class="traversal-display">
+                    <li class="count">Number of values: </li>
+                    <li class="max">Maximum of values: </li>
+                    <li class="min">Minimum of values: </li>
+                </ul>
+            </div>
+            <div class="delete">
+                <fieldset class="delete-group">
+                    <h3>Delete Operation</h3>
+                    <label for="delete-start">
+                        <input id="delete-start" type="radio" value="delete-start" name="input-position"> Delete value
+                        at start position
+                    </label>
+                    <label for="delete-end">
+                        <input id="delete-end" type="radio" value="delete-end" name="input-position"> Delete value at
+                        end position
+                    </label>
+                    <label for="delete-at-index">
+                        <input id="delete-at-index" type="radio" value="delete-at-end" name="input-position"> Delete
+                        value at given index number
+                    </label>
+                </fieldset>
+                <label for="delete-input" class="delete-input-label">
+                    <input id="delete-input" type="text">
+                </label>
+                <button class="insert">Insert</button>
+            </div>
+        </div>
     </div>
 
 </body>
+<script src="Arrays.js"></script>
+
 </html>

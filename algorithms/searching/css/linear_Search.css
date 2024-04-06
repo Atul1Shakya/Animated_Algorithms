@@ -5,14 +5,13 @@
 }
 
 .linear_search_container{
-   height: 400px;
+   height: 30rem;
 }
 
 .animation_area{
    display: flex;
    /* border: 2px dotted Red; */
-   min-height: 40vh;
-   
+   height: fit-content;
    flex-direction: column;
 
 }
@@ -107,7 +106,7 @@
    height: 90%;
    /* display: none; */
    overflow: hidden;
-   border: 3px rgb(255, 53, 107) solid;
+   border: 3px #1d6d6c solid;
    padding: 10px;
    background-color: rgb(44, 44, 44);
    color: white;
@@ -118,7 +117,7 @@
 
 .input_array_active{
    height: 90%;
-   border: 3px rgb(255, 53, 107) solid;
+   border: 3px #1d6d6c solid;
    padding: 10px;
    background-color: rgb(44, 44, 44);
    color: white;
@@ -129,7 +128,7 @@
    cursor: pointer;
    height: 90% ;
    display: flex;
-   background-color: #ff4545;
+   background-color: #1d6d6c;
    align-items: center;
    transition: all 0.5;
 
@@ -140,12 +139,12 @@
 }
 
 .buttons{
-   border: 2px solid #ff4545;
+   border: 2px solid #1d6d6c;
    color: white;
    margin: 0 2% 0 0;
 }
 .buttons:hover{
-   color: #ff4545;
+   color: #1d6d6c;
 }
 
 .found , .not-found{

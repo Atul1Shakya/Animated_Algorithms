@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.input{
+    border: 2px solid black;
+    width: fit-content;
+    padding: 0.5em;
+}
+
+.input label{
+    display: flex;
+    font-size: 1.2em;
+}
+
+.input label input{
+    margin-left: 0.3em;
+}
+
+/* Array css design */
+.animation{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.3em;
+    height: 50vh;
+}
+.animation ul{
+    list-style: none;
+}
+.arraybox{
+    /* border: 2px solid black; */
+    width: fit-content;
+    margin: 0 0.3em;
+}
+.value{
+    border: 2px solid #1d6d6c;
+    height: 1.8em;
+    width: fit-content;
+    padding: 0.2em 0.57em;
+    font-size: 1.7em;
+    border-radius: 0.2em;
+}
+
+.novalue{
+    border: 2px solid #1d6d6c;
+    padding: 0.2em 0.4em;
+    font-size: 1.7em;
+    border-radius: 0.2em;
+    width: 1.8em; 
+    height: 1.8em; 
+}
+.index-number{
+    /* border: 2px solid green; */
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Performing Operations */
+.operations{
+    display: flex;
+}
+.operations div{
+    width: 33.33%;
+    border: 2px solid black;
+    padding: 0.7em;
+}
+
+fieldset label{
+    display: block;
+}
+
+#insert-index{
+    width: 3em;
+    display: none;
+}
